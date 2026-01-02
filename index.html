@@ -90,7 +90,8 @@
         #tab2:checked ~ nav label[for="tab2"],
         #tab3:checked ~ nav label[for="tab3"],
         #tab4:checked ~ nav label[for="tab4"],
-        #tab5:checked ~ nav label[for="tab5"] {
+        #tab5:checked ~ nav label[for="tab5"],
+        #tab6:checked ~ nav label[for="tab6"] {
             background: var(--red-flag);
             color: #fff;
         }
@@ -114,7 +115,8 @@
         #tab2:checked ~ .content-wrapper #about,
         #tab3:checked ~ .content-wrapper #library,
         #tab4:checked ~ .content-wrapper #iskra,
-        #tab5:checked ~ .content-wrapper #media {
+        #tab5:checked ~ .content-wrapper #support,
+        #tab6:checked ~ .content-wrapper #media {
             display: block;
         }
 
@@ -164,13 +166,50 @@
             margin-top: 15px;
             font-size: 0.8rem;
             text-transform: uppercase;
+            border: 1px solid var(--red-flag);
+            transition: 0.2s;
         }
-        .btn:hover { background: #aa0000; }
+        .btn:hover { background: #aa0000; border-color: #aa0000; }
+
+        /* Specjalny styl dla przycisku Kawy (żółty/złoty akcent) */
+        .btn-coffee {
+            background: #FFDD00;
+            color: #000;
+            border-color: #FFDD00;
+        }
+        .btn-coffee:hover {
+            background: #d4b700;
+            color: #000;
+        }
 
         .library-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
+        }
+        
+        /* Lista linków social media */
+        .social-list {
+            list-style: none;
+            padding: 0;
+        }
+        .social-list li {
+            margin-bottom: 10px;
+        }
+        .social-list a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            padding: 5px 10px;
+            border: 1px solid #333;
+            width: 100%;
+            transition: 0.2s;
+        }
+        .social-list a:hover {
+            background: #333;
+            color: #fff;
+            border-color: var(--red-flag);
         }
 
         /* --- STOPKA --- */
@@ -197,6 +236,7 @@
     <input type="radio" id="tab3" name="nav">
     <input type="radio" id="tab4" name="nav">
     <input type="radio" id="tab5" name="nav">
+    <input type="radio" id="tab6" name="nav">
 
     <header>
         <h1>Czerń <span>i Czerwień</span></h1>
@@ -208,7 +248,8 @@
         <label for="tab2">Kim Jesteśmy</label>
         <label for="tab3">Biblioteka</label>
         <label for="tab4">Iskra</label>
-        <label for="tab5">Kontakt</label>
+        <label for="tab5">Wesprzyj nas</label>
+        <label for="tab6">Kontakt</label>
     </nav>
 
     <div class="content-wrapper">
@@ -256,6 +297,11 @@
                     <p>Ruch robotniczy w Polsce i na świecie.</p>
                     <a href="#" class="btn">Wejdź</a>
                 </div>
+                <div class="post">
+                    <h3>Ekologia</h3>
+                    <p>Analiza katastrofy klimatycznej.</p>
+                    <a href="#" class="btn">Wejdź</a>
+                </div>
             </div>
         </section>
 
@@ -272,28 +318,64 @@
             </div>
         </section>
 
+        <section id="support" class="page-section">
+            <div class="post">
+                <h2>Wesprzyj nasze działania</h2>
+                <p>
+                    <strong>Podoba Ci się nasze działanie? Pomóż nam trzymać linię!</strong>
+                </p>
+                <p>
+                    Zebrane środki idą na druk materiałów, sprzęt do nagłośnienia, organizację wydarzeń i codzienne funkcjonowanie oddolnych inicjatyw.
+                    Nie robimy tego dla kasy. Robimy to, bo wierzymy w solidarność i równość, ale wszystko niestety kosztuje, dlatego potrzebujemy Waszego wsparcia!
+                </p>
+                
+                <hr style="border: 0; border-top: 1px solid #333; margin: 20px 0;">
+                
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="https://buymeacoffee.com/czerniczernie" class="btn btn-coffee" target="_blank">
+                        Postaw nam kawę ☕️
+                    </a>
+                </div>
+            </div>
+        </section>
+
         <section id="media" class="page-section">
             <div class="post">
                 <h2>Media & Kontakt</h2>
-                <p>Znajdziesz nas w mediach społecznościowych:</p>
-                <ul style="margin: 20px 0 20px 40px;">
-                    <li>Facebook</li>
-                    <li>Instagram</li>
-                    <li>Twitter (X)</li>
+                <p>Jesteśmy obecni w sieci. Obserwuj nas, by być na bieżąco:</p>
+                
+                <ul class="social-list">
+                    <li>
+                        <a href="https://www.instagram.com/czern_i_czerwien?igsh=MWZhbGYzZTlxZnVvZQ%3D%3D&utm_source=qr" target="_blank">
+                            INSTAGRAM
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/share/1CNeebhVQk/?mibextid=wwXIfr" target="_blank">
+                            FACEBOOK
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://t.me/CzerniCzerwien" target="_blank">
+                            TELEGRAM
+                        </a>
+                    </li>
                 </ul>
-                <hr style="border: 0; border-top: 1px dashed #444; margin: 20px 0;">
-                <h3>Bezpieczny Kontakt</h3>
+
+                <hr style="border: 0; border-top: 1px dashed #444; margin: 30px 0;">
+                
+                <h3>Kontakt E-mail</h3>
                 <p>
-                    Zalecamy używanie szyfrowania. Jeśli chcesz nawiązać kontakt, napisz e-mail używając klucza PGP lub skontaktuj się przez komunikatory typu Signal/Session.
+                    Dla zachowania prywatności korzystamy z bezpiecznej poczty Proton.
                 </p>
-                <a href="mailto:kontakt@example.com" class="btn">Napisz E-mail</a>
+                <a href="mailto:czerniczerwien@proton.me" class="btn">czerniczerwien@proton.me</a>
             </div>
         </section>
 
     </div>
 
     <footer>
-        NO COPYRIGHT © 2024 CZERŃ I CZERWIEŃ<br>
+        NO COPYRIGHT © 2026 CZERŃ I CZERWIEŃ<br>
         Wolna licencja. Kopiowanie zalecane.
     </footer>
 
