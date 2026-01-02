@@ -203,6 +203,23 @@
         .footnotes { font-size: 0.8rem; color: #666; margin-top: 20px; border-top: 1px solid #333; padding-top: 10px; }
         .footnotes a { color: #888; }
 
+        /* GRID DLA ISKRY */
+        .iskra-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .iskra-item {
+            background: #111;
+            border: 1px solid #333;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .iskra-item h3 { color: #fff; margin-bottom: 10px; font-family: var(--font-head); }
+        .iskra-item p { font-size: 0.9rem; color: #aaa; margin-bottom: 15px; }
+
         footer {
             text-align: center;
             padding: 40px;
@@ -287,10 +304,10 @@
                     <summary></summary>
                     <div>
                         <p>Nie chodzi o rozbijanie szyb czy burzenie wszystkiego dookoła. Anarchizm to przede wszystkim wiara w naszą wspólną zdolność do organizacji, do wzajemnego wspierania się i do tworzenia sensownego życia bez potrzeby narzucania nam czegokolwiek z góry.</p>
-                        <p>Pomyśl o codzienności. Kiedy ostatnio uczestniczyłeś w grupie sąsiedzkiej, która wspólnie dba o lokalny park lub organizuje wymianę rzeczy, by nic się nie marnowało? A może wspierasz kooperatywę spożywczą, gdzie członkowie razem decydują o zakupach i zarządzają dystrybucją żywności, bez udziału wielkich korporacji? Albo gdy razem ze znajomymi tworzycie otwarty projekt edukacyjny w internecie, dzieląc się wiedzą bez opłat i hierarchii? To są właśnie te momenty, w których wcielamy w życie anarchistyczne zasady – autonomię, wzajemną pomoc i oddolną inicjatywę. Działamy, bo widzimy potrzebę, nie dlatego, że ktoś nam kazał.</p>
-                        <p>Anarchizm nie odrzuca porządku, ale dąży do porządku tworzonego przez samych ludzi, z ich własnej woli. Sprzeciwia się natomiast władzy, która opiera się na przymusie, kontroli i hierarchii, tej, która mówi ci, co masz robić, bez twojej zgody i bez względu na twoje potrzeby. Mowa tu o biurokratach, politykach czy korporacjach, które często podejmują decyzje wbrew interesom większości, a w imię własnych korzyści.</p>
-                        <p>Wyobraź sobie społeczeństwo, w którym decyzje podejmowane są wspólnie, na zasadzie porozumienia, a nie narzucane przez nielicznych. Gdzie ludzie współpracują ze sobą, aby zaspokajać swoje potrzeby, a nie rywalizują o zasoby. Gdzie zamiast wszechobecnej kontroli i regulacji, panuje zaufanie i odpowiedzialność. To jest właśnie dążenie anarchizmu – do świata, w którym każdy z nas ma realny wpływ na swoje życie i otoczenie, bez ulegania arbitralnym nakazom.</p>
-                        <p>Bycie anarchistą to niekoniecznie przynależność do jakiejś partii. To raczej sposób patrzenia na świat, sposób myślenia o wolności i odpowiedzialności. To kwestionowanie władzy, która rości sobie prawo do dominacji nad nami, a jednocześnie aktywne poszukiwanie i tworzenie alternatywnych rozwiązań w naszym codziennym życiu. To także wyjście na ulice i manifestowanie, gdy widzimy niesprawiedliwość. Nie czekamy na "wielką rewolucję", ale staramy się żyć wolniej i tworzyć wolne przestrzenie tu i teraz – w naszych wspólnotach, w naszych relacjach, w każdym naszym działaniu.</p>
+                        <p>Pomyśl o codzienności. Kiedy ostatnio uczestniczyłeś w grupie sąsiedzkiej, która wspólnie dba o lokalny park lub organizuje wymianę rzeczy, by nic się nie marnowało? A może wspierasz kooperatywę spożywczą, gdzie członkowie razem decydują o zakupach i zarządzają dystrybucją żywności, bez udziału wielkich korporacji? To są właśnie te momenty, w których wcielamy w życie anarchistyczne zasady.</p>
+                        <p>Anarchizm nie odrzuca porządku, ale dąży do porządku tworzonego przez samych ludzi, z ich własnej woli. Sprzeciwia się natomiast władzy, która opiera się na przymusie, kontroli i hierarchii. Mowa tu o biurokratach, politykach czy korporacjach, które często podejmują decyzje wbrew interesom większości.</p>
+                        <p>Wyobraź sobie społeczeństwo, w którym decyzje podejmowane są wspólnie, na zasadzie porozumienia, a nie narzucane przez nielicznych. Gdzie zamiast wszechobecnej kontroli i regulacji, panuje zaufanie i odpowiedzialność. To jest właśnie dążenie anarchizmu.</p>
+                        <p>Bycie anarchistą to niekoniecznie przynależność do jakiejś partii. To raczej sposób patrzenia na świat. To kwestionowanie władzy, która rości sobie prawo do dominacji nad nami, a jednocześnie aktywne poszukiwanie i tworzenie alternatywnych rozwiązań w naszym codziennym życiu.</p>
                         <p>Anarchizm to zaproszenie do budowania świata opartego na równości, solidarności i swobodzie, świata, w którym ludzie wspólnie decydują o swojej przyszłości.</p>
                     </div>
                 </details>
@@ -298,29 +315,28 @@
 
             <div class="post">
                 <h2>Twoja wolność to ich zysk - Anarchizm kontra Liberalizm</h2>
-                <p>Liberalizm mówi, że wolność jednostki jest najważniejsza. Ale nigdy nie mówi, że tą jednostką jest zawsze ktoś, kto ma ziemię, kapitał, władze i ochronę państwa...</p>
+                <p>Liberalizm mówi, że wolność jednostki jest najważniejsza. Ale nigdy nie mówi, że tą jednostką jest zawsze ktoś, kto ma ziemię, kapitał i władze...</p>
                 <details>
                     <summary></summary>
                     <div>
-                        <p>Liberalizm zawsze sprzeda ci bajkę o wolnym rynku, o równych szansach i "sukcesie" jako nagrodzie za twoją ciężką pracę. Ale kiedy to ty próbujesz sięgnąć po tę ich wolność, okazuje się nagle, że ktoś już ustawił planszę tej gry. Gdy ty pracujesz oni zarabiają. Gdy ty bierzesz kredyt oni dziedziczą kolejną kamienicę. Gdy ty masz wolność słowa oni mają media.</p>
+                        <p>Liberalizm zawsze sprzeda ci bajkę o wolnym rynku, o równych szansach i "sukcesie". Ale kiedy to ty próbujesz sięgnąć po tę ich wolność, okazuje się nagle, że ktoś już ustawił planszę tej gry. Gdy ty pracujesz oni zarabiają.</p>
                         <p>W liberalizmie pozwalają ci mówić do momentu, w którym nie zagrażasz ich zyskom. To tak, jakbyś miał prawo protestować, ale tylko do chwili, gdy nie zablokujesz drogi. Liberalizm jest "tolerancyjny" do momentu w którym im się to opłaca.</p>
-                        <p>Anarchizm nie chce pseudo "wolności" w której masz wybór między dwiema firmami chce życie bez przymusu. Jednocześnie nie dąży do równości wobec prawa, ale do końca prawa, które istnieje po to, by sankcjonować i utrwalać wyzysk. W tym miejscu trzeba zaznaczyć, że nie oznacza to bezprawia. Anarchizm odrzuca prawo odgórne, a w zamian proponuje ład oparty na dobrowolnych zasadach, wzajemnym szacunku i odpowiedzialności zbiorowej.</p>
-                        <p>Nie chcemy demokracji liberalnej ani innych "wspaniałych zamienników", lecz wspólnot, które same o sobie decydują. Liberalizm ma na celu cie zreformować bo to właśnie liberalizm pozwala, by garstka miała wszystko, a reszta cieszyła się, że ma cokolwiek. Liberalizm ma na celu pokazać ci twoje miejsce w szeregu i postawić mur dla twojej "wolności".</p>
+                        <p>Anarchizm nie chce pseudo "wolności" w której masz wybór między dwiema firmami chce życie bez przymusu. Jednocześnie nie dąży do równości wobec prawa, ale do końca prawa, które istnieje po to, by sankcjonować i utrwalać wyzysk.</p>
+                        <p>Nie chcemy demokracji liberalnej ani innych "wspaniałych zamienników", lecz wspólnot, które same o sobie decydują.</p>
                     </div>
                 </details>
             </div>
 
             <div class="post">
                 <h2>Naród dla bogatych - Nacjonalizm jako przemoc klasowa</h2>
-                <p>Od dziecka uczą nas dumy z bycia obywatelem danego państwa, dumy ze swojej flagi. Wmawiane jest nam, że naród to rodzina, a ojczyzna to matka...</p>
+                <p>Od dziecka uczą nas dumy z bycia obywatelem danego państwa. Wmawiane jest nam, że naród to rodzina. Ale gdy polityk każe ci śpiewać hymn, to nie dlatego, że zależy mu na twoim losie...</p>
                 <details>
                     <summary></summary>
                     <div>
-                        <p>Mamy być gotowi umrzeć za "ojczyznę", nawet jeśli ta ojczyzna nie zrobiła nic, byśmy mogli w niej godnie żyć. Politycy, dziennikarze, media – nikt z tych grup nie odpowiada, dla kogo tak naprawdę jest ta ojczyzna. Bo w momencie, gdy polityk każe ci śpiewać hymn, to nie dlatego, że zależy mu na twoim losie, lecz chce, żebyś milczał, żebyś nie pytał, czemu jego dziecko studiuje za granicą, a ty masz zapieprzać na śmieciówce.</p>
-                        <p>Nacjonalizm nie jest miłością do ziemi. To kij, którym bije się klasę pracującą, żeby nie zauważyła, kto realnie ją okrada. Nacjonalizm to ideologia, która każe ludziom walczyć między sobą na podstawie granic, które narysowali kiedyś królowie, kapitaliści i generałowie. Pracownik z Łomży ma mniej wspólnego z prezesem z Warszawy niż z robotnikiem z Kijowa, Berlina czy Stambułu, bo i jeden, i drugi wie, jak smakuje przepracowana noc i jak wygląda pusty portfel pod koniec miesiąca.</p>
+                        <p>Nacjonalizm to kij, którym bije się klasę pracującą, żeby nie zauważyła, kto realnie ją okrada. To fałszywa tożsamość. Pracownik z Łomży ma mniej wspólnego z prezesem z Warszawy niż z robotnikiem z Kijowa, Berlina czy Stambułu. Obaj wiedzą, jak smakuje pusty portfel.</p>
                         <p>Nacjonalizm robi z biednych ludzi żołnierzy, wyborców, fanatyków. Każe im bronić "narodu", który w praktyce oznacza interesy polityków, oligarchów i korporacji. Kiedy ktoś ci mówi: „Imigranci zabiorą ci pracę”, to realnie pyta, kto zbudował system, w którym trzeba konkurować o prawo do życia.</p>
-                        <p>Anarchiści od dawna mówią, że ojczyzna to fikcja. Prawdziwa wspólnota rodzi się z solidarności, nie granic. Emma Goldman pisała: „Patriotyzm to ostatnie schronienie łajdaka” – bo kiedy nie masz już nic do zaproponowania ludziom, sprzedajesz im sztandar i dumę z bycia biednym, ale przynajmniej za "wielkim narodem”. W świecie, gdzie jedni mają wille i armie, a drudzy stoją w kolejce po leki, nacjonalizm to broń klas wyższych.</p>
-                        <p>Dlatego w anarchizmie nie jest tylko odrzucenie granic, a odrzucenie klas, władzy, mitów, które mają na celu dzielić ludzi. Jednocześnie, mówiąc to, anarchizm nie rzuca słów na wiatr, a proponuje rozwiązania. Zamiast narodów – wspólnota, zamiast granic – solidarność, a zamiast przemocy klasowej – rewolucja. Trzeba pamiętać, że siła nie leży w hymnie ani w orle na paszporcie, ale leży w tym, że stajesz ramię w ramię z drugim człowiekiem. ŻADEN CZŁOWIEK NIE JEST NIELEGALNY!</p>
+                        <p>Anarchiści od dawna mówią, że ojczyzna to fikcja. Prawdziwa wspólnota rodzi się z solidarności, nie granic. Emma Goldman pisała: „Patriotyzm to ostatnie schronienie łajdaka”.</p>
+                        <p>Dlatego w anarchizmie nie jest tylko odrzucenie granic, a odrzucenie klas, władzy, mitów. ŻADEN CZŁOWIEK NIE JEST NIELEGALNY!</p>
                     </div>
                 </details>
             </div>
@@ -332,22 +348,16 @@
                     <summary></summary>
                     <div>
                         <h3>Rozdział I</h3>
-                        <p>Od dziecka uczono nas, że pieniądz to życie, że własność to świętość, a praca obowiązkiem i zaszczytem. Kapitalizm nie jest tylko gospodarką. To religia, która nie potrzebuje bogów, bo ma rynki. To system moralny, który nazywa biedę winą, a wyzysk sukcesem. To porządek, który łudzi obietnicą wolności, ale daje ją tylko tym, którzy urodzili się na górze.</p>
-                        <p>Patrzysz na billboard. Kobieta się śmieje, dziecko szczęśliwe, dom z katalogu. A obok bezdomny trzyma kartkę z napisem "na jedzenie". Uczony jesteś od małego, że bieda wynika z tego, że nie jesteś elastyczny, produktywny i przystosowany. Ale to nie ty jesteś wadliwy, to system jest! Kapitalizm przetrwał tak długo nie dlatego, że działa, lecz dlatego, że skutecznie wmawia ludziom, że nie ma alternatywy. Przedstawia się jako "naturalny" stan rzeczy.</p>
-                        <p>Bo gdy wszystko w twoim życiu jest towarem – nawet ciało, czas, zdrowie, uczucia – to w końcu zostaje już tylko gniew. Kapitalizm nie potrzebuje pałki, gdy ma kredyt hipoteczny. Nie musi ci grozić, wystarczy, że odcina ci dostęp do życia, jeśli nie podporządkujesz się jego logice.</p>
-                        <p>Wmawia się nam, że własność to wolność. Że to, co posiadasz, jest twoje, że możesz tym zarządzać, że masz nad tym kontrolę. Ale w rzeczywistości własność nie daje ci wolności. Ona tylko odwraca twoją uwagę od faktu, że jesteś zależny. Od pracy, czynszu, prawa własności tych, którzy mają więcej niż ty. Bo dom, który "należy" do ciebie, kupiony jest na 30 lat kredytu. Bo ziemia, która "należy" do narodu, jest wykupowana hektarami przez inwestorów.</p>
-                        <p>Własność nie jest czymś naturalnym, lecz wyuczonym. Jest ideologicznym betonem, który zalano w naszych głowach, byśmy nie dostrzegali, że świat może wyglądać inaczej. Możemy realnie żyć inaczej, ale tylko wtedy, gdy przestaniemy wierzyć, że człowiek to tylko towar oraz że cokolwiek naprawdę "należy" do kogokolwiek.</p>
-
+                        <p>Kapitalizm nie jest tylko gospodarką. To religia, która nie potrzebuje bogów, bo ma rynki. To system moralny, który nazywa biedę winą, a wyzysk sukcesem. Patrzysz na billboard – szczęście z katalogu. A obok bezdomny.</p>
+                        <p>Wmawia się nam, że własność to wolność. Ale dom kupiony na 30 lat kredytu należy do banku. Kiedyś ziemia nie należała do nikomu. Własność prywatna była anomalią. Współcześni właściciele mają akty notarialne i policję. System chroni własność, nie ludzi.</p>
+                        
                         <h3>Rozdział II</h3>
-                        <p>Mówi się, że każdy może być kim chce. Prawda jest taka, że już od urodzenia przypisano ci miejsce w piramidzie życia. Jedni zaczynają życie na szczycie ze spadkiem, inni budzą się na dnie z długiem. Kapitalizm kocha mówić o "klasie średniej" jakby to była wspólnota ludzi aspirujących, ambitnych, szczęśliwych. Ale klasa średnia to bajka dla tych, którzy mają kredyt hipoteczny i wmówiono im, że to przywilej.</p>
-                        <p>W tym układzie realnie są tylko dwie grupy: grupa pracujących i grupa wyzyskujących burżujów, żyjących z pracy tych niżej. Ci pierwsi budują domy, jeżdżą autobusami, roznoszą jedzenie, sprzątają ulice. A ci drudzy mają konta inwestycyjne, nieruchomości, akcje, spółki, których nigdy nie odwiedzają.</p>
-                        <p>Gdy ty mówisz: "Mam szefa, który jest w porządku", ale on realnie nie płaci z swoich pieniędzy, lecz płaci z twojej pracy. Wyzysk nie krzyczy, nie bije pałką. Dziś ma krawat, regulamin i święto pracy raz do roku. Ale jego istota się nie zmienia. Nadal ktoś bierze twoje osiem godzin życia dziennie i oddaje ci ich jedną piątą w formie wypłaty.</p>
-                        <p>Solidarność klasowa nie polega na tym, że wszyscy się lubimy. Polega na tym, że wiemy, kto nas wykorzystuje. I że zaczynamy mówić o tym głośno.</p>
-
+                        <p>Mówi się, że każdy może być kim chce. Prawda jest taka, że już od urodzenia przypisano ci miejsce w piramidzie. W tym układzie są tylko dwie grupy: pracujący i wyzyskujący. Ci pierwsi budują, sprzątają, uczą. Ci drudzy mają akcje i nieruchomości.</p>
+                        <p>Gdy ty mówisz: "Mam szefa, który jest w porządku", ale on realnie nie płaci z swoich pieniędzy, lecz płaci z twojej pracy. Wyzysk nie krzyczy – dziś ma krawat i regulamin. Ale jego istota się nie zmienia: ktoś bierze twoje osiem godzin życia i oddaje ci ułamek wartości.</p>
+                        
                         <h3>Rozdział III</h3>
-                        <p>Każde imperium, które chce przetrwać, potrzebuje dwóch rzeczy: strażników i mitu. Strażnicy pilnują, byś nie podnosił głowy. Mit – byś nie pomyślał, że możesz. Współczesne państwo to perfekcyjna hybryda obu. To nie neutralna instytucja. To aparat przemocy i kontroli, tworzony po to, by utrwalić władzę jednej klasy nad drugą.</p>
-                        <p>Policja nie istnieje po to, by bronić ludzi. Istnieje po to, by chronić własność i hierarchię. Gdy bank wyrzuca ludzi z mieszkań, policja stoi po stronie banku. Gdy robotnik protestuje przeciw wyzyskowi, to policja broni zakładu pracy. System prawa nie jest narzędziem sprawiedliwości. Jest systemem zarządzania, lojalności i kapitału.</p>
-                        <p>Jednocześnie pamiętajmy, że świat równości nie przyjdzie z parlamentu. Kapitalizm nie upadnie przez wybory. Upada, kiedy przestajemy w niego wierzyć. Co cztery lata wrzucasz kartkę, a potem patrzysz, jak wszystko zostaje po staremu, tylko w innym kolorze. To nie system, który się zepsuł, to system, który działa dokładnie tak, jak miał.</p>
+                        <p>Współczesne państwo to aparat przemocy i kontroli. Policja nie istnieje, by bronić ludzi, lecz by chronić własność i hierarchię. Gdy bank wyrzuca ludzi z mieszkań, policja stoi po stronie banku.</p>
+                        <p>Świat równości nie przyjdzie z parlamentu. Kapitalizm nie upadnie przez wybory. Upada, kiedy przestajemy w niego wierzyć.</p>
                     </div>
                 </details>
             </div>
@@ -359,43 +369,34 @@
                     <summary></summary>
                     <div>
                         <h3>Zgnilizna starego kontynentu</h3>
-                        <p>Mówili, że to ostoja wolności, demokracji, ludzkich praw, kurwa jego mać! A ja widzę tylko smród obłudy, zakłamania i tchórzostwa. Brukselskie gabinety, te ich pieprzone szczyty, te ich "decyzje" – to wszystko to jeden wielki teatr dla mas. Rasizm, ksenofobia, nacjonalizm to te stare demony, o których myśleliśmy, że zostały pogrzebane na zawsze, znowu wyłażą z grobów.</p>
-                        <p>I ta prawica, ta cholerna prawica, żeruje na tym strachu jak hieny na trupie. Wciska im kit o powrocie do "tradycji", do "wielkich wartości". A ja się pytam: gdzie tu jest, kurwa, postęp? Nie ma. Jest tylko gówno. Nie dajmy się zwieść ich słodkim pierdzeniom o stabilności i porządku. To nie jest stabilność, to jest stagnacja. To nie jest porządek, to jest opresja.</p>
-                        <p>Mówią nam o kryzysie. Ekonomiczny kryzys, kryzys wartości, kryzys migracyjny. Pieprzenie! To nie jest żaden kryzys, to jest celowe działanie! Oni, ci na górze, wiedzą doskonale, co robią. Kryzys to dla nich okazja. Okazja, żeby jeszcze bardziej zacisnąć pętlę na naszych szyjach. I nagle pojawiają się "silni liderzy", z obietnicami porządku i "rozwiązywania problemów". Zawsze ci sami, z tym samym ryjem pełnym pychy i pogardy.</p>
-                        <p>Ich recepta na "ratowanie Europy" to zawsze to samo: więcej policji, więcej kontroli, mniej praw, więcej nienawiści. Budują więzienia zamiast szkół, kupują armaty zamiast leków, zamykają granice zamiast otwierać serca. I to jest ten ich "postęp"?</p>
-                        <p>Ale ich maski opadają. Coraz więcej ludzi widzi tę fałszywą grę. Widzą, jak ta pieprzona Europa, rzekomo zjednoczona, rozpada się na kawałki, rozrywana przez nienawiść, którą sami zasiali. Widzą, jak ich "porządek" to tylko fasada. Ta zgnilizna musi zostać wyplewiona. Albo sami to zrobimy, albo zgnijemy razem z nimi.</p>
+                        <p>Mówili, że to ostoja wolności, demokracji, ludzkich praw. A ja widzę tylko smród obłudy. Brukselskie gabinety, te ich szczyty – to teatr dla mas. Rasizm, ksenofobia, nacjonalizm znowu wyłażą z grobów.</p>
+                        <p>I ta prawica żeruje na strachu. Wciska kit o powrocie do "tradycji", do "czystej rasy". Gdzie tu jest postęp? Nie ma. Jest tylko gówno. Nie dajmy się zwieść ich słodkim pierdzeniom o stabilności.</p>
+                        <p>Mówią nam o kryzysie. Ekonomiczny kryzys, kryzys wartości. Pieprzenie! To celowe działanie! Oni wiedzą, co robią. Kryzys to okazja, żeby zacisnąć pętlę na naszych szyjach.</p>
+                        <p>Ich recepta to zawsze to samo: więcej policji, więcej kontroli, mniej praw. Budują więzienia zamiast szkół. To jest ten ich "postęp"?</p>
 
-                        <h3>Normalizacja ekstremizmu czyli jak skrajność staje się centrum</h3>
-                        <p>Faszyzm nie wraca w mundurach i ze swastyką na rękawie. Wraca w krawacie, w garniturze, z mikrofonem w ręku, przemawiając językiem „zdrowego rozsądku”. Wraca jako normalność. W ostatnich latach widzimy, jak skrajna prawica przejmuje język, symbole, przestrzeń publiczną i co najgroźniejsze środek sceny politycznej.</p>
-                        <p>To nie jest przypadek ani „reakcja wyborców”. To efekt wieloletniego demontażu idei solidarności społecznej. Kiedy każda odpowiedź na kryzys społeczny sprowadzana jest do więcej nadzoru, więcej kar, mniej wolności i znajdywania sobie wroga łatwo jest przemycić poglądy autorytarne jako pragmatyzm. Odpychanie, zamykanie, karanie, izolowanie to dziś normy, nie wyjątki.</p>
-                        <p>Zacznijmy od Włoch – Giorgia Meloni i jej postfaszystowska partia. To samo dzieje się w Polsce. Partia rządząca przez osiem lat znormalizowała język nienawiści, a nowa liberalna koalicja nie cofnęła zegara zachowując graniczne pushbacki. Dlaczego? Bo twardy prawicowy dyskurs wyznaczył ramy tego, co dziś jest „rozsądne”. Granice zostały przesunięte, ale nikt nie zauważył, kiedy to się stało. Nienawiść zaczęła być przedstawiana jako „obrona kultury”, przemoc jako „konieczność”.</p>
-                        <p>W Niemczech AfD regularnie osiąga drugie miejsce w sondażach. We Francji Marine Le Pen zyskuje coraz większe poparcie, podczas gdy Macron prowadzi politykę równie represyjną. Europa nie skręca w prawo w wyniku jednej decyzji. Ona dryfuje systemowo. Faszyzacja nie dzieje się przez przejęcie władzy przez jedną siłę, ale przez utratę odwagi moralnej całej klasy politycznej.</p>
-                        <p>Skrajna prawica posługuje się sprawdzonymi taktykami: tworzenie fikcyjnego zagrożenia (migrant, LGBT, "ideologia gender"), przechwycenie języka ofiary ("jesteśmy uciszani przez cenzurę"), wchłanianie symboliki narodowej. I wreszcie – stopniowe poszerzanie granic dyskursu. Każde oswojone hasło staje się fundamentem nowej normy.</p>
-                        <p>Również media i algorytmy wspierają ten proces. Skrajna prawica nie potrzebuje już partii masowych. Ma mem, stream, krótki filmik na TikToku. Ma stylówkę, która sprzedaje się lepiej niż transparent. Młodzi ludzie, dorastający w świecie niestabilności, są podatni na prostą, binarną narrację prawicy. Prawica daje im poczucie przynależności i jasnego wroga, podczas gdy lewica bywa zamknięta i elitarna.</p>
+                        <h3>Normalizacja ekstremizmu</h3>
+                        <p>Faszyzm nie wraca w mundurach i ze swastyką. Wraca w krawacie, przemawiając językiem „zdrowego rozsądku”. Wraca jako normalność. W ostatnich latach skrajna prawica przejmuje środek sceny politycznej.</p>
+                        <p>To nie przypadek. To efekt demontażu idei solidarności społecznej. Kiedy każda odpowiedź na kryzys to więcej nadzoru i kar, łatwo przemycić autorytaryzm jako pragmatyzm.</p>
+                        <p>Europa nie skręca w prawo w wyniku jednej decyzji. Ona dryfuje systemowo. Faszyzacja dzieje się przez utratę odwagi moralnej całej klasy politycznej.</p>
 
-                        <h3>Na barykadach oporu. Jak przeciwdziałać faszyzmowi</h3>
-                        <p>Faszyzm nie rodzi się w próżni. Jest odpowiedzią systemu na własne kryzysy. Skuteczna walka z faszyzmem nie zaczyna się na ulicy, lecz w rozbijaniu mechanizmów, które faszyzm karmią. Naszym zadaniem nie jest tylko reagować na brunatne marsze. Naszym zadaniem jest nie dopuścić, by miały pożywkę.</p>
-                        <p>Pierwszym krokiem jest dekonstrukcja narracji. Musimy obnażać mity o "porządku" i "tradycji", pokazując, że kryje się za nimi dążenie do kontroli. Drugim krokiem jest budowanie alternatywnych struktur: mediów, kolektywów, samopomocy. Prawica rośnie, gdy ludzie czują się osamotnieni. Trzecim filarem oporu jest działanie bezpośrednie. Tam, gdzie faszyści wchodzą na ulice – trzeba ich zablokować. Tam, gdzie szykanowana jest mniejszość – trzeba stanąć w obronie.</p>
-                        <p>Musimy odzyskać wyobraźnię rewolucyjną. Nie wystarczy mówić: „prawica kłamie”. Trzeba pokazać, że my też mamy ogień, ale skierowany ku źródłom opresji. Młody człowiek szuka sensu. Jeśli go nie znajdzie u nas, znajdzie go u nich. Musimy wejść w cyfrowe przestrzenie z przekazem żywym, zabawnym, gniewnym.</p>
-                        <p>Kluczowe jest tworzenie alternatywnych wspólnot. Wspólne gotowanie (Food Not Bombs), punkty pomocy sąsiedzkiej, otwarte biblioteki, skłoty. To nie są tylko działania „socjalne”. To formy oporu. Budowanie wzajemności osłabia logikę faszystowską. Kiedy ludzie mają siebie nawzajem, nie potrzebują wodza.</p>
-                        <p>Jednostka, nawet najbardziej świadoma, nie pokona systemu. Potrzebujemy wspólnoty. Organizacji. Nie musisz być ekspertem. Wystarczy, że jesteś i chcesz działać. Każde kolektywne działanie to bunt. Nie jesteś sam. I nigdy nie byłeś. Ale musisz zrobić pierwszy krok. Dołącz. Twórz. Organizuj się. Europa nie musi iść drogą represji. Ale by było inaczej, potrzebna jest odwaga.</p>
-                        <p>Więc pamiętajcie wszyscy czytający nas że <strong>SOLIDARNOŚĆ NASZĄ BRONIĄ!</strong></p>
+                        <h3>Na barykadach oporu</h3>
+                        <p>Faszyzm nie rodzi się w próżni. Skuteczna walka nie zaczyna się na ulicy, lecz w rozbijaniu mechanizmów, które go karmią. Naszym zadaniem jest nie dopuścić, by miał pożywkę.</p>
+                        <p>Musimy dekonstruować narrację prawicy. Budować alternatywne struktury: media, kolektywy, samopomoc. Tam, gdzie faszyści wchodzą na ulice – trzeba ich zablokować.</p>
+                        <p>Musimy odzyskać wyobraźnię rewolucyjną. Nie wystarczy mówić: „prawica kłamie”. Trzeba pokazać, że inny świat jest możliwy. Potrzebujemy wspólnoty. Organizacji. Solidarność naszą bronią!</p>
                     </div>
                 </details>
             </div>
 
             <div class="post">
                 <h2>Granice Zabijają</h2>
-                <p>Jak podaje organizacja We Are Monitoring, od czasu rozpoczęcia kryzysu na granicy Polsko-Białoruskiej w 2021 roku zginęły 102 osoby. Granice to nie tylko kreski na mapie...</p>
+                <p>Jak podaje organizacja We Are Monitoring, od czasu rozpoczęcia kryzysu na granicy Polsko-Białoruskiej zginęły 102 osoby. Granice to nie tylko kreski na mapie...</p>
                 <details>
                     <summary></summary>
                     <div>
-                        <p>Jak podaje strona missing migrants od 2014 roku liczba osób w drodze, które zaginęły lub zginęły na morzu śródziemnym wynosi ponad 32 tysiące. W samym tylko 2024 roku ponad 2800 osób zostało zatrzymane przez frontex i zawrócone do niebezpiecznych miejsc.</p>
-                        <p>Z czego wynika cała ta sytuacja? Czy to "błąd w systemie", czy może konsekwencja samego systemu? Granice tak na prawdę określają strefy, nad jakimi dane państwa mają kontrolę. Państwa te używają ich instrumentalnie. Aby chronić nasze granicę czasem trzeba kogoś zabić, czasem kogoś głodzić, zawrócić do państwa gdzie życie danej osoby jest bezpośrednio zagrożone. W taki właśnie sposób granicę zabijają.</p>
-                        <p>Nie potrzeba nam "innej polityki migracyjnej", "racjonalnej", ale też "humanitarnej", w rzeczywistości zmiana polityki migracyjnej państwa to tylko zmiana sposobu w jaki dane osoby umierają i zmiana ilości tych osób.</p>
-                        <p>Ponadto granicy nie tylko ograniczają swobodny przepływ ludność i zabijając osoby migranckie, ale też są główną przyczyną wojen. Jakieś państwo, chcę poszerzyć swoje granice, aby na jego terytorium znalazły się cenne złoża ropy czy żyzna ziemia. Tak dzieje się aktualnie przy każdej próbie dostarczenia pomocy humanitarnej do Strefy Gazy. Przecież ci działacze chcą nielegalnie przekroczyć granicę innego państwa!</p>
-                        <p>Tak więc granice powodują wojny i zabijają osoby w kryzysie migracyjnym, oczywiście nie robi tego sam koncept granic, tylko konkretne instytucje powołane do ich bronienia, Straż Graniczna, Frontex, IDF.</p>
-                        
+                        <p>Jak podaje strona missing migrants od 2014 roku liczba osób, które zginęły na morzu śródziemnym wynosi ponad 32 tysiące. W samym tylko 2024 roku ponad 2800 osób zostało zatrzymane przez frontex.</p>
+                        <p>Czy to "błąd w systemie"? Nie. Granice określają strefy kontroli państw. Chronienie granic oznacza czasem kogoś zabić, głodzić lub zawrócić na pewną śmierć. Zmiana polityki migracyjnej na "humanitarną" to często tylko zmiana sposobu umierania.</p>
+                        <p>Granice są też główną przyczyną wojen. Państwa chcą poszerzać wpływy, przejmować złoża. Atakują działaczy humanitarnych – jak dzieje się to przy próbach pomocy w Strefie Gazy.</p>
+                        <p>Tak więc granice powodują wojny i zabijają osoby w kryzysie migracyjnym. Nie robi tego koncept granic, tylko konkretne instytucje: Straż Graniczna, Frontex, IDF.</p>
                         <div class="footnotes">
                             <p>[1] We Are Monitoring: <a href="https://wearemonitoring.org.pl/lista-zmarlych/" target="_blank">Lista zmarłych</a></p>
                             <p>[2] Missing Migrants: <a href="https://missingmigrants.iom.int/region/mediterranean" target="_blank">Dane Morze Śródziemne</a></p>
@@ -407,13 +408,12 @@
 
             <div class="post">
                 <h2>Kto naprawdę konsumuje?</h2>
-                <p>Na pierwszy rzut oka społeczeństwo zbudowało mit że to my konsumujemy ale czy tak jest naprawdę? Kto w tej zawiłej relacji kapitału i konsumpcjonizmu realnie konsumuje?</p>
+                <p>Na pierwszy rzut oka społeczeństwo zbudowało mit że to my konsumujemy ale czy tak jest naprawdę? Kto w tej zawiłej relacji kapitału realnie konsumuje?</p>
                 <details>
                     <summary></summary>
                     <div>
-                        <p>Ludziom wydaje się to normalne że kupują nowe buty, nowe telefony, nowe samochody i wydają pieniądze na nowinki technologiczne lecz czy robią to bo tego chcą? Z jednej strony może się wydawać że tak że kupują bo chcą ale z drugiej strony czy to przypadkiem nie jest złudzeniem kapitału? Czy to nie jest tak że system kapitalistyczny konsumuje nas? Naszą uwagę, czas, zasoby, energię, emocje czy życie?</p>
-                        <p>Ale by poznać odpowiedzi na te pytania musimy najpierw sprecyzować czym jest sam konsumpcjonizm. Konsumpcjonizm to idea która zakłada że im więcej mamy i im więcej zużywamy tym "szczęśliwsi” jesteśmy. Gospodarka rynkowa którą znamy właśnie opiera się na tym że wzrasta produkcja to musi jednocześnie wzrastać sprzedaż by tworzyć popyt. To właśnie ten system gospodarczy eksploatuje zasoby i ludzi.</p>
-                        <p>Badania nad kulturą konsumpcjonizmu wskazują jasno że społeczeństwo nie tyle co potrzebuje dóbr lecz jest zachęcane wręcz można by ująć programowane do konsumpcji ponad potrzeby ludzkie. Sam system kapitalistyczny używa narzędzi do programowania nas, reklamy, media, trendy czy nawet marki to wszystko kreuje sztucznie wyimaginowane potrzeby które są tylko konstruktem rynkowym nie realnym brakiem.</p>
+                        <p>Ludziom wydaje się to normalne że kupują nowe buty i telefony. Ale czy robią to bo chcą? Czy to nie system kapitalistyczny konsumuje nas? Naszą uwagę, czas, zasoby, energię i emocje?</p>
+                        <p>Konsumpcjonizm to idea która zakłada że im więcej zużywamy tym "szczęśliwsi” jesteśmy. Badania wskazują jasno że społeczeństwo jest programowane do konsumpcji ponad potrzeby. Reklamy, media, trendy kreują sztuczne potrzeby.</p>
                         <p>Ta cała wypowiedź prowadzi nas do paradoksu że mimo że to my konsumujemy ogromne ilości dóbr tak naprawdę to system ten konsumuje nas.</p>
                         <p style="margin-top: 20px;">
                             <a href="https://czasopisma.uwr.edu.pl/fsoc/article/download/5774/5452/?utm_source=" target="_blank" style="color: var(--red-flag); font-weight: bold;">[PRZECZYTAJ PEŁNY TEKST NAUKOWY]</a>
@@ -425,15 +425,51 @@
         </section>
 
         <section id="iskra" class="page-section">
-            <div class="post">
-                <h2>Pismo "Iskra"</h2>
-                <p>Archiwum naszego pisma w formacie PDF.</p>
-                <ul style="list-style: none; margin-top: 20px;">
-                    <li style="padding: 10px; border-bottom: 1px solid #333; display: flex; justify-content: space-between;">
-                        <span>Iskra Nr 1</span>
-                        <a href="#" style="color: var(--red-flag);">[PDF]</a>
-                    </li>
-                </ul>
+            <h2 style="margin-bottom: 20px; border-bottom: 2px solid var(--red-flag); padding-bottom: 10px; font-family: var(--font-head); text-transform: uppercase;">Archiwum Pisma "Iskra"</h2>
+            <div class="post" style="border-left: none;">
+                <p>Pobierz archiwalne i bieżące numery w formacie PDF:</p>
+            </div>
+
+            <div class="iskra-grid">
+                <div class="iskra-item">
+                    <div>
+                        <h3>Iskra Nr 5 (2025)</h3>
+                        <p>Temat: Polski trotyl i ludobójstwo w Gazie. AboTak oblana kwasem.</p>
+                    </div>
+                    <a href="iskra5.pdf" class="btn" target="_blank" download>POBIERZ PDF</a>
+                </div>
+
+                <div class="iskra-item">
+                    <div>
+                        <h3>Iskra Nr 4 (2025)</h3>
+                        <p>Temat: Flotylla zatrzymana! Deportacja za wykroczenia.</p>
+                    </div>
+                    <a href="iskra4.pdf" class="btn" target="_blank" download>POBIERZ PDF</a>
+                </div>
+
+                <div class="iskra-item">
+                    <div>
+                        <h3>Iskra Nr 3 (2025)</h3>
+                        <p>Temat: Morderstwo w Palestynie. Masowy militaryzm.</p>
+                    </div>
+                    <a href="iskra3.pdf" class="btn" target="_blank" download>POBIERZ PDF</a>
+                </div>
+
+                <div class="iskra-item">
+                    <div>
+                        <h3>Iskra Nr 2 (2025)</h3>
+                        <p>Temat: Stop faszyzmowi. The Base - narzędzie Kremla.</p>
+                    </div>
+                    <a href="iskra2.pdf" class="btn" target="_blank" download>POBIERZ PDF</a>
+                </div>
+
+                <div class="iskra-item">
+                    <div>
+                        <h3>Iskra Nr 1 (2025)</h3>
+                        <p>Temat: Konfederacja Rasistów. Ułaskawienie faszyzmu.</p>
+                    </div>
+                    <a href="iskra1.pdf" class="btn" target="_blank" download>POBIERZ PDF</a>
+                </div>
             </div>
         </section>
 
@@ -468,7 +504,7 @@
     </div>
 
     <footer>
-        NO COPYRIGHT © 2024 CZERŃ I CZERWIEŃ<br>
+        NO COPYRIGHT © 2026 CZERŃ I CZERWIEŃ<br>
         Wolna licencja. Kopiowanie zalecane.
     </footer>
 
