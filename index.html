@@ -30,7 +30,7 @@
             line-height: 1.6;
         }
 
-        /* NAGŁÓWEK */
+        /* NAGŁÓWEK ZMIENIONY */
         header {
             background: #000;
             border-bottom: 4px solid var(--red-flag);
@@ -41,18 +41,29 @@
         h1 {
             font-family: var(--font-head);
             text-transform: uppercase;
-            font-size: 3rem;
+            font-size: 3.5rem;
             letter-spacing: 2px;
-            color: #fff;
+            margin: 0;
+            line-height: 1.1;
+            
+            /* ZMIANA KOLORU NA PUSTY Z CZERWONYM OBRYSEM */
+            color: transparent; 
+            -webkit-text-stroke: 1.5px var(--red-flag); /* Czerwony kontur */
         }
-        h1 span { color: var(--red-flag); }
+        
+        h1 span { 
+            /* DRUGA CZĘŚĆ PEŁNA CZERWONA */
+            color: var(--red-flag);
+            -webkit-text-stroke: 0; /* Bez obrysu, pełny kolor */
+        }
         
         .subtitle {
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 3px;
-            color: #888;
-            margin-top: 5px;
+            color: #666; /* Ciemniejszy szary zamiast białego */
+            margin-top: 10px;
+            font-weight: bold;
         }
 
         /* NAWIGACJA */
@@ -231,7 +242,7 @@
         }
         
         @media (max-width: 700px) {
-            h1 { font-size: 2rem; }
+            h1 { font-size: 2.5rem; }
             nav label { padding: 10px 15px; font-size: 0.7rem; flex: 1; text-align: center; }
         }
     </style>
