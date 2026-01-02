@@ -15,6 +15,7 @@
             --bg-page: #121212;       /* Ciemne tło */
             --bg-panel: #1e1e1e;      /* Nieco jaśniejsze tło dla tekstów */
             --text-main: #e0e0e0;     /* Jasny tekst */
+            --text-muted: #aaaaaa;
             --red-flag: #cc0000;      /* Anarchistyczna czerwień */
             --border-color: #333;
             --font-head: 'Impact', 'Arial Black', sans-serif;
@@ -125,23 +126,24 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- STYL POSTÓW --- */
+        /* --- STYL POSTÓW I ARTYKUŁÓW --- */
         .post {
             background: var(--bg-panel);
             border: 1px solid var(--border-color);
-            padding: 20px;
-            margin-bottom: 20px;
+            padding: 25px;
+            margin-bottom: 30px;
             border-left: 3px solid var(--red-flag);
         }
 
-        .post h2 {
+        .post h2, .post h3 {
             font-family: var(--font-head);
-            font-size: 1.8rem;
-            margin-bottom: 15px;
             color: #fff;
-            border-bottom: 1px solid #333;
-            padding-bottom: 10px;
+            margin-bottom: 15px;
         }
+        
+        .post h2 { font-size: 1.8rem; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        .post h3 { font-size: 1.4rem; margin-top: 20px; color: var(--red-flag); }
+        .post h4 { font-size: 1.1rem; font-weight: bold; margin-top: 15px; color: #fff; text-transform: uppercase; }
 
         .post p {
             margin-bottom: 15px;
@@ -156,6 +158,39 @@
             padding-bottom: 5px;
         }
 
+        /* --- MECHANIZM ROZWIJANIA TEKSTU (DETAILS) --- */
+        details {
+            margin-top: 15px;
+            border-top: 1px dashed #444;
+            padding-top: 10px;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--red-flag);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            list-style: none; /* Ukrywa domyślny trójkąt */
+        }
+        
+        /* Własny znacznik przycisku */
+        summary::after {
+            content: " [+ CZYTAJ CAŁOŚĆ]"; 
+        }
+        details[open] summary::after {
+            content: " [- ZWIŃ TEKST]";
+        }
+
+        /* Animacja rozwijania */
+        details[open] div {
+            animation: fadeIn 0.5s;
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid #333;
+        }
+
+        /* --- INNE STYLE --- */
         .btn {
             display: inline-block;
             background: var(--red-flag);
@@ -171,31 +206,15 @@
         }
         .btn:hover { background: #aa0000; border-color: #aa0000; }
 
-        /* Specjalny styl dla przycisku Kawy (żółty/złoty akcent) */
         .btn-coffee {
             background: #FFDD00;
             color: #000;
             border-color: #FFDD00;
         }
-        .btn-coffee:hover {
-            background: #d4b700;
-            color: #000;
-        }
+        .btn-coffee:hover { background: #d4b700; color: #000; }
 
-        .library-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        
-        /* Lista linków social media */
-        .social-list {
-            list-style: none;
-            padding: 0;
-        }
-        .social-list li {
-            margin-bottom: 10px;
-        }
+        .social-list { list-style: none; padding: 0; }
+        .social-list li { margin-bottom: 10px; }
         .social-list a {
             color: var(--text-main);
             text-decoration: none;
@@ -206,13 +225,17 @@
             width: 100%;
             transition: 0.2s;
         }
-        .social-list a:hover {
-            background: #333;
-            color: #fff;
-            border-color: var(--red-flag);
-        }
+        .social-list a:hover { background: #333; color: #fff; border-color: var(--red-flag); }
 
-        /* --- STOPKA --- */
+        .footnotes {
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid #333;
+        }
+        .footnotes a { color: #888; text-decoration: underline; }
+
         footer {
             text-align: center;
             padding: 40px;
@@ -240,144 +263,4 @@
 
     <header>
         <h1>Czerń <span>i Czerwień</span></h1>
-        <div class="subtitle">Niezależna Inicjatywa Anarchistyczna</div>
-    </header>
-
-    <nav>
-        <label for="tab1">Aktualności</label>
-        <label for="tab2">Kim Jesteśmy</label>
-        <label for="tab3">Biblioteka</label>
-        <label for="tab4">Iskra</label>
-        <label for="tab5">Wesprzyj nas</label>
-        <label for="tab6">Kontakt</label>
-    </nav>
-
-    <div class="content-wrapper">
-
-        <section id="home" class="page-section">
-            <div style="margin-bottom: 20px; background: #000; padding: 10px; border: 1px dashed #444; text-align: center; color: var(--red-flag); font-weight: bold;">
-                OFICJALNY KANAŁ INFORMACYJNY
-            </div>
-
-            <article class="post">
-                <h2>Uruchamiamy nową stronę</h2>
-                <div class="post-meta">Kategoria: Komunikaty</div>
-                <p>
-                    W odpowiedzi na rosnącą cenzurę w mediach społecznościowych, uruchamiamy własny, niezależny portal informacyjny. 
-                    Będziemy tu publikować nasze oświadczenia, analizy sytuacji politycznej oraz materiały edukacyjne.
-                </p>
-            </article>
-        </section>
-
-        <section id="about" class="page-section">
-            <div class="post">
-                <h2>O Nas</h2>
-                <p>
-                    Jesteśmy grupą niezrzeszonych anarchistów i antyfaszystów, których połączyła wspólna wizja świata wolnego od przymusu i hierarchii. Nie funkcjonujemy jako formalna organizacja z zarządem czy statutem. Zamiast tego, tworzymy otwartą i elastyczną sieć osób, które z entuzjazmem dzielą się swoimi przemyśleniami i aktywnie sprzeciwiają się wszelkim formom dominacji, ucisku oraz autorytaryzmu. Kierujemy się głębokim przekonaniem o fundamentalnych wartościach, takich jak wolność jednostki, równość społeczna i wzajemna pomoc.
-                </p>
-                <p>
-                    Nasza działalność koncentruje się na analizie i komentowaniu bieżących wydarzeń społecznych i politycznych, a także na tworzeniu własnej publicystyki. Dążymy do przedstawiania perspektyw, które często są pomijane lub celowo marginalizowane w głównym nurcie mediów. Poprzez nasze teksty, artykuły i otwarte dyskusje, staramy się demistyfikować krzywdzące stereotypy otaczające anarchizm oraz konsekwentnie promować idee antyfaszystowskie.
-                </p>
-                <p>
-                    Wierzymy, że edukacja i swobodna wymiana myśli są kluczowe w budowaniu społeczeństwa opartego na solidarności, autonomii i prawdziwej sprawiedliwości społecznej. Dlatego też nasze działania obejmują również obecność na manifestacjach i ulicach, gdzie aktywnie wyrażamy nasz sprzeciw i wspieramy ruchy społeczne. Angażujemy się w te działania nie dla zysku, władzy czy uznania, lecz z głębokiego pragnienia wywołania realnej zmiany i przyczynienia się do tworzenia lepszego jutra dla nas wszystkich.
-                </p>
-            </div>
-        </section>
-
-        <section id="library" class="page-section">
-            <h2 style="margin-bottom: 20px; border-bottom: 2px solid var(--red-flag); padding-bottom: 10px; font-family: var(--font-head); text-transform: uppercase;">Biblioteka</h2>
-            <div class="library-grid">
-                <div class="post">
-                    <h3>Teoria</h3>
-                    <p>Podstawowe teksty wprowadzające w anarchizm.</p>
-                    <a href="#" class="btn">Wejdź</a>
-                </div>
-                <div class="post">
-                    <h3>Historia</h3>
-                    <p>Ruch robotniczy w Polsce i na świecie.</p>
-                    <a href="#" class="btn">Wejdź</a>
-                </div>
-                <div class="post">
-                    <h3>Ekologia</h3>
-                    <p>Analiza katastrofy klimatycznej.</p>
-                    <a href="#" class="btn">Wejdź</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="iskra" class="page-section">
-            <div class="post">
-                <h2>Pismo "Iskra"</h2>
-                <p>Archiwum naszego pisma w formacie PDF.</p>
-                <ul style="list-style: none; margin-top: 20px;">
-                    <li style="padding: 10px; border-bottom: 1px solid #333; display: flex; justify-content: space-between;">
-                        <span>Iskra Nr 1</span>
-                        <a href="#" style="color: var(--red-flag);">[PDF]</a>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="support" class="page-section">
-            <div class="post">
-                <h2>Wesprzyj nasze działania</h2>
-                <p>
-                    <strong>Podoba Ci się nasze działanie? Pomóż nam trzymać linię!</strong>
-                </p>
-                <p>
-                    Zebrane środki idą na druk materiałów, sprzęt do nagłośnienia, organizację wydarzeń i codzienne funkcjonowanie oddolnych inicjatyw.
-                    Nie robimy tego dla kasy. Robimy to, bo wierzymy w solidarność i równość, ale wszystko niestety kosztuje, dlatego potrzebujemy Waszego wsparcia!
-                </p>
-                
-                <hr style="border: 0; border-top: 1px solid #333; margin: 20px 0;">
-                
-                <div style="text-align: center; margin-top: 30px;">
-                    <a href="https://buymeacoffee.com/czerniczernie" class="btn btn-coffee" target="_blank">
-                        Postaw nam kawę ☕️
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section id="media" class="page-section">
-            <div class="post">
-                <h2>Media & Kontakt</h2>
-                <p>Jesteśmy obecni w sieci. Obserwuj nas, by być na bieżąco:</p>
-                
-                <ul class="social-list">
-                    <li>
-                        <a href="https://www.instagram.com/czern_i_czerwien?igsh=MWZhbGYzZTlxZnVvZQ%3D%3D&utm_source=qr" target="_blank">
-                            INSTAGRAM
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.facebook.com/share/1CNeebhVQk/?mibextid=wwXIfr" target="_blank">
-                            FACEBOOK
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://t.me/CzerniCzerwien" target="_blank">
-                            TELEGRAM
-                        </a>
-                    </li>
-                </ul>
-
-                <hr style="border: 0; border-top: 1px dashed #444; margin: 30px 0;">
-                
-                <h3>Kontakt E-mail</h3>
-                <p>
-                    Dla zachowania prywatności korzystamy z bezpiecznej poczty Proton.
-                </p>
-                <a href="mailto:czerniczerwien@proton.me" class="btn">czerniczerwien@proton.me</a>
-            </div>
-        </section>
-
-    </div>
-
-    <footer>
-        NO COPYRIGHT © 2026 CZERŃ I CZERWIEŃ<br>
-        Wolna licencja. Kopiowanie zalecane.
-    </footer>
-
-</body>
-</html>
+        <div class="subtitle">Niez
