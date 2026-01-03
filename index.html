@@ -45,7 +45,7 @@
             text-align: center;
         }
 
-        /* === EFEKT GLITCH NA LOGO === */
+        /* === EFEKT GLITCH NA LOGO (WIDOCZNY TYLKO NA EKRANIE) === */
         h1 {
             font-family: var(--font-head);
             text-transform: uppercase;
@@ -53,14 +53,12 @@
             letter-spacing: 2px;
             margin: 0;
             line-height: 1.1;
-            color: var(--bg-page); /* Ukrycie oryginalnego tekstu pod tło */
+            color: var(--bg-page);
             position: relative;
             display: inline-block;
             -webkit-text-stroke: 1.5px var(--red-flag);
             z-index: 1;
         }
-
-        /* Warstwa 1 - Czerwone przesunięcie */
         h1::before {
             content: "CZERŃ I CZERWIEŃ";
             position: absolute;
@@ -76,8 +74,6 @@
             clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
             animation: glitch-anim-1 3s infinite linear alternate-reverse;
         }
-
-        /* Warstwa 2 - Białe przesunięcie */
         h1::after {
             content: "CZERŃ I CZERWIEŃ";
             position: absolute;
@@ -93,14 +89,12 @@
             clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
             animation: glitch-anim-2 2.5s infinite linear alternate-reverse;
         }
-
         h1 span { 
             color: var(--red-flag);
             -webkit-text-stroke: 0;
             position: relative;
             z-index: 2;
         }
-
         @keyframes glitch-anim-1 {
             0% { clip-path: inset(20% 0 80% 0); transform: translate(-2px, 1px); }
             20% { clip-path: inset(60% 0 10% 0); transform: translate(2px, -1px); }
@@ -109,7 +103,6 @@
             80% { clip-path: inset(10% 0 60% 0); transform: translate(-1px, 1px); }
             100% { clip-path: inset(30% 0 20% 0); transform: translate(1px, -1px); }
         }
-
         @keyframes glitch-anim-2 {
             0% { clip-path: inset(10% 0 60% 0); transform: translate(2px, -1px); }
             20% { clip-path: inset(80% 0 5% 0); transform: translate(-2px, 1px); }
@@ -118,7 +111,6 @@
             80% { clip-path: inset(50% 0 30% 0); transform: translate(1px, -1px); }
             100% { clip-path: inset(20% 0 70% 0); transform: translate(-1px, 1px); }
         }
-        /* === KONIEC EFEKTU GLITCH === */
 
         .subtitle {
             font-size: 0.9rem;
@@ -299,6 +291,85 @@
             nav label { padding: 10px 15px; font-size: 0.7rem; flex: 1; text-align: center; }
             .panic-btn { padding: 10px 15px; font-size: 0.8rem; right: 10px; bottom: 10px; }
         }
+
+        /* ========================================= */
+        /* === STYLE DO DRUKU / FORMAT ULOTKOWY === */
+        /* ========================================= */
+        @media print {
+            /* Reset kolorów na białe tło i czarny tusz */
+            :root {
+                --bg-page: #ffffff;
+                --bg-panel: #ffffff;
+                --text-main: #000000;
+                --border-color: #000000;
+                --red-flag: #000000; /* W druku czerń, chyba że chcesz kolor */
+            }
+
+            body {
+                background-color: #fff;
+                color: #000;
+                font-family: 'Times New Roman', serif; /* Czytelniejsza czcionka w druku */
+            }
+
+            /* Ukrywamy zbędne elementy */
+            .panic-btn, nav, .btn, .social-list, input, #searchLibrary, footer, .btn-coffee {
+                display: none !important;
+            }
+
+            /* Upraszczamy nagłówek */
+            header {
+                border-bottom: 2px solid #000;
+                padding-bottom: 10px;
+                text-align: left;
+            }
+
+            /* Wyłączamy glitch na logo w druku */
+            h1 {
+                color: #000;
+                -webkit-text-stroke: 0;
+                font-size: 24pt;
+            }
+            h1::before, h1::after { display: none; }
+            h1 span { color: #000; }
+            .subtitle { color: #000; font-size: 10pt; }
+
+            /* Formatowanie treści */
+            .content-wrapper {
+                max-width: 100%;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            .post {
+                border: none;
+                background: none;
+                color: #000;
+                padding: 0;
+                margin-bottom: 20px;
+                border-bottom: 1px solid #000;
+            }
+
+            .post h2 {
+                color: #000;
+                border-bottom: 1px solid #000;
+                font-size: 16pt;
+            }
+            
+            .post p {
+                color: #000;
+                font-size: 11pt;
+                text-align: justify;
+                line-height: 1.4;
+            }
+
+            /* Wymuszamy rozwinięcie sekcji details w druku */
+            details { border: none; }
+            details > summary { display: none; }
+            details > div { display: block; margin-top: 0; border: none; }
+            
+            /* USUNIĘTO STOPKĘ "Źródło..." zgodnie z życzeniem */
+        }
     </style>
 </head>
 <body>
@@ -452,9 +523,72 @@
                 <details>
                     <summary></summary>
                     <div>
-                        <h3>Zgnilizna starego kontynentu</h3>
-                        <p>Mówili, że to ostoja wolności, demokracji, ludzkich praw, kurwa jego mać! A ja widzę tylko smród obłudy, zakłamania i tchórzostwa...</p>
-                        </div>
+                         <h3>Zgnilizna starego kontynentu</h3>
+                        <p>Mówili, że to ostoja wolności, demokracji, ludzkich praw, kurwa jego mać! A ja widzę tylko smród obłudy, zakłamania i tchórzostwa. Brukselskie gabinety, te ich pieprzone szczyty, te ich "decyzje" – to wszystko to jeden wielki teatr dla mas, żebyśmy przypadkiem nie zauważyli, jak bardzo jesteśmy w dupie.</p>
+                        <p>Ulice, które kiedyś pulsowały buntem, dziś są wyłożone kostką brukową, po której maszerują te same gęby, co zawsze. Tylko flagi się zmieniają, a ideologie wracają jak rzygowiny po zbyt mocnym drinku. Rasizm, ksenofobia, nacjonalizm to te stare demony, o których myśleliśmy, że zostały pogrzebane na zawsze, znowu wyłażą z grobów. Wzmacniane przez polityków, podgrzewane przez media, wmawiane ludziom, którzy boją się własnego cienia. Boją się inności, boją się zmian, boją się tego, co nieznane.</p>
+                        <p>I ta prawica, ta cholerna prawica, żeruje na tym strachu jak hieny na trupie. Wciska im kit o powrocie do "tradycji", do "wielkich wartości", do "czystej rasy". A ja się pytam: gdzie tu jest, kurwa, postęp? Gdzie tu jest ludzkość? Gdzie tu jest ta oświecona Europa, o której nam pierdolili w szkole? Nie ma. Jest tylko gówno. I ten smród roznosi się po całym kontynencie, dławiąc każdy powiew świeżego powietrza. Nie dajmy się zwieść ich słodkim pierdzeniom o stabilności i porządku. To nie jest stabilność, to jest stagnacja. To nie jest porządek, to jest opresja. To jest ich porządek, w którym my, zwykli ludzie, mamy tylko jedno zadanie: siedzieć cicho, pracować i nie zadawać pytań.</p>
+                        <p>I co z tego, że mają te swoje "wartości europejskie"? Pieprzyć ich "wartości", skoro w imię tych "wartości" zamykają uchodźców w obozach, gnoją mniejszości, a biednych ludzi wyrzucają na bruk. Gadają o solidarności, a jedyne, co widzę, to solidarność bankierów i korporacji, którzy bez skrupułów okradają nas z przyszłości. Młodzi ludzie patrzą na to wszystko i widzą tylko beznadzieję. Praca za grosze, brak perspektyw, kredyty, które cię pogrzebią, zanim zdążysz się obejrzeć. To jest ta ich "wolność"? Wolność do bycia niewolnikiem w ich systemie?</p>
+                        <p>I co z tego, że machają nam przed nosem flagami? Polską, francuską, niemiecką – bez różnicy! Flaga to tylko szmata, za którą chowają swoje brudne interesy. Mówią, że jesteśmy częścią wielkiej, zjednoczonej Europy, ale tak naprawdę dzielą nas na kategorie, na "swoich" i "obcych". Podjudzają robotników z Wschodu przeciwko tym z Zachodu, starszych przeciwko młodym, mężczyzn przeciwko kobietom. A wszystko po to, żebyśmy byli zajęci kłótniami między sobą, zamiast dostrzec prawdziwego wroga czyli system, który nas wszystkich wyzyskuje.</p>
+                        <p>Ale my to widzimy. Widzimy ich kłamstwa, ich manipulacje. Czujemy ten smród zgnilizny, który wydobywa się z ich pałaców władzy. Nie damy się nabrać na ich tanie sztuczki. Nie damy się uciszyć. Bo choć próbują nas zamknąć w klatkach strachu i apatii, to wciąż tli się w nas ten sam ogień, który kiedyś rozpalał barykady. Ogień, który spali ich system na popiół. I to będzie ten moment, kiedy Europa naprawdę zacznie oddychać.</p>
+                        <p>Mówią nam o kryzysie. Ekonomiczny kryzys, kryzys wartości, kryzys migracyjny. Pieprzenie! To nie jest żaden kryzys, to jest celowe działanie! Oni, ci na górze, wiedzą doskonale, co robią. Kryzys to dla nich okazja. Okazja, żeby jeszcze bardziej zacisnąć pętlę na naszych szyjach, żeby wprowadzić jeszcze bardziej drakońskie prawa, żeby odebrać nam resztki wolności. Bo kiedy ludzie się boją, są łatwiejsi do kontrolowania. Kiedy są podzieleni, nie widzą, kto jest ich prawdziwym oprawcą.</p>
+                        <p>I nagle pojawiają się "silni liderzy", z obietnicami porządku i "rozwiązywania problemów". Zawsze ci sami, z tym samym ryjem pełnym pychy i pogardy dla tych, których mają "chronić". Mówią, że obronią nas przed "obcymi", przed "innymi", przed "zagrożeniem". A prawda jest taka, że to oni sami są największym zagrożeniem! Zagrożeniem dla wolności myśli, dla solidarności, dla każdej iskry człowieczeństwa, która próbuje przetrwać w tym pieprzonym systemie.</p>
+                        <p>Ich recepta na "ratowanie Europy" to zawsze to samo więcej policji, więcej kontroli, mniej praw, więcej nienawiści. Budują więzienia zamiast szkół, kupują armaty zamiast leków, zamykają granice zamiast otwierać serca. I to jest ten ich "postęp"? To jest ta "świetlana przyszłość", o której śnią w swoich klimatyzowanych gabinetach? To jest przyszłość, w której my, wolni ludzie, mamy tylko jedno prawo – prawo do milczenia i posłuszeństwa.</p>
+                        <p>Ale my im tego nie damy. Ani centymetra! Ani jednego słowa! Ta zgnilizna musi zostać wyplewiona, a ten kontynent – oczyszczony. Albo sami to zrobimy, albo zgnijemy razem z nimi. Wybór należy do nas.</p>
+                        <p>Nie dajcie się nabrać na ich propagandę, na te ich gładkie słówka z telewizora, na te ich uśmiechnięte twarze z billboardów. To wszystko to trucizna, która sączy się do waszych umysłów, żeby was otępić, żebyście przestali myśleć, żebyście przestali czuć. Wmawiają wam, że jesteście bezpieczni, pod ich skrzydłami, pod ich pieprzoną kontrolą. Ale to fałszywe bezpieczeństwo! To bezpieczeństwo więźnia w celi, który nie wie, że jego wolność została mu dawno odebrana.</p>
+                        <p>Oni chcą, żebyście wierzyli w ich podziały. Lewica kontra prawica, miasto kontra wieś, wierzący kontra niewierzący. To wszystko gówno prawda! Prawdziwy podział jest jeden: ci, co kontrolują, i ci, co są kontrolowani. Ci, co wyzyskują, i ci, co są wyzyskiwani. I dopóki będziemy się kłócić o ich pieprzone etykietki, dopóty oni będą siedzieć w swoich ciepłych posadkach, rechocząc z naszej głupoty.</p>
+                        <p>Ale wystarczy! Kłamstwa mają krótkie nogi, a prawda, nawet najbardziej niewygodna, zawsze znajdzie swoją drogę. Widzimy ich na wylot. Widzimy ich pazerne pyski, ich puste obietnice, ich strach przed tym, że w końcu się obudzimy. Obudzimy się i zobaczymy, że ich system to tylko domek z kart, który runie pod naciskiem naszej woli.</p>
+                        <p>Ta Europa jest chora, gnije od środka. My jesteśmy lekiem, który ją oczyści. Jesteśmy tymi, którzy mają odwagę nazwać rzeczy po imieniu i powiedzieć im prosto w twarz NIE! Ta ziemia, ta wolność, ta przyszłość to wszystko jest nasze! I nie oddamy jej bez walki!</p>
+                        <p>Słyszycie ten szept? To nie wiatr. To nie strach. To narastający pomruk niezadowolenia, który przebija się przez ich medialny szum i polityczne kłamstwa. Ludzie zaczynają widzieć. Zaczynają czuć. Patrzą na swoje puste portfele, na zamknięte szpitale, na zrujnowane szkoły i w końcu, kurwa, łączą kropki. To nie jest "kryzys", to jest celowe zubożenie! To nie jest "optymalizacja", to jest rabunek!</p>
+                        <p>I co wtedy robią? Wskazują palcem na "innych". Na tych, co przyjechali, na tych, co wyglądają inaczej, na tych, co mają inny kolor skóry, inne przekonania. "To oni są winni!" krzyczą z trybun, a ich medialne tuby powtarzają to do znudzenia. Żebyś tylko nie spojrzał w górę, żebyś nie zobaczył, kto naprawdę trzyma lejce i kto czerpie z tego syfu największe zyski. Odwracają naszą uwagę od prawdziwych złodziei i oprawców, którzy siedzą w luksusowych fotelach, popijając drogie wino i śmiejąc się nam w twarz.</p>
+                        <p>Ale ich maski opadają. Coraz więcej ludzi widzi tę fałszywą grę. Widzą, jak ta pieprzona Europa, rzekomo zjednoczona, rozpada się na kawałki, rozrywana przez nienawiść, którą sami zasiali. Widzą, jak ich "porządek" to tylko fasada, za którą kryje się chaos i wyzysk. Widzą, że ich wielkie wizje przyszłości to tylko koszmar, w którym wolność jest iluzją, a równość zakazanym słowem.</p>
+                        <p>To jest ta zgnilizna, która trawi Europę od środka. Ale im bardziej gnije, tym mocniej czuć ten smród. I ten smród w końcu obudzi nawet najbardziej znieczulonych. W końcu pęknie to, co miało być nie do złamania. A wtedy, to my, ci na dole, będziemy pisać nowe zasady. Bez nich. Bez ich kłamstw. Bez ich smrodu.</p>
+                        <p>I niech nikt nie ma wątpliwości, kto tę zgniliznę rozpala. To nie wiatr przywiał ten smród, to nie przypadek skręcił ten kontynent w stronę bagna. To prawicowa szajka, ta sama, która zawsze karmi się strachem i nienawiścią, pcha Europę w otchłań. Ich obietnice o "silnych narodach" to nic innego jak szowinistyczny bełkot, maskujący chęć powrotu do czasów, gdzie elita gnoiła resztę, a granice były zasiekami z drutu kolczastego.</p>
+                        <p>Patrzcie na ich gęby w telewizorze, te same, które jeszcze wczoraj gadały o wolnym rynku, a dziś budują mury i zamykają usta. Ich "porządek" to terror dla tych, którzy się nie wpisują w ich chorą wizję białej, nacjonalistycznej utopii. Ich "bezpieczeństwo" to nic innego jak pałka i strach dla każdej osoby, która myśli inaczej, czuje inaczej, wygląda inaczej. Od Warszawy po Paryż, od Budapesztu po Rzym – wszędzie ten sam rak nacjonalizmu, ksenofobii i autorytaryzmu, który rozprzestrzenia się pod płaszczykiem "patriotyzmu".</p>
+
+                        <h3>Normalizacja ekstremizmu czyli jak skrajność staje się centrum</h3>
+                        <p>Europa nie eksploduje nagle ona cichnie. Faszyzm nie wraca w mundurach i ze swastyką na rękawie. Wraca w krawacie, w garniturze, z mikrofonem w ręku, przemawiając językiem „zdrowego rozsądku”, „obrony tożsamości” i „walki z nielegalną migracją”. Wraca jako normalność. Jako odpowiedź na kryzysy, które sam współtworzy. Wraca nie jako wyjątek, ale jako polityczna oferta dnia codziennego, coraz częściej bez potrzeby ukrywania się pod maską.</p>
+                        <p>W ostatnich latach widzimy, jak skrajna prawica przejmuje język, symbole, przestrzeń publiczną i co najgroźniejsze środek sceny politycznej. Ruchy marginalne jeszcze dekadę temu, dzisiaj wchodzą do rządów, wpływają na prawo i kształtują debatę publiczną. Ich postulaty przestają być „radykalne”, bo liberalne centrum uczy się przejmować ich narracje o zagrożeniu kulturowym, o potrzebie silnego państwa, o zamykaniu granic, o obronie “cywilizacji”</p>
+                        <p>To nie jest przypadek ani „reakcja wyborców”. To efekt wieloletniego demontażu idei solidarności społecznej, zaniku pamięci zbiorowej i braku alternatywy. Kiedy każda odpowiedź na kryzys społeczny sprowadzana jest do więcej nadzoru, więcej kar, mniej wolności i znajdywania sobie wroga łatwo jest przemycić poglądy autorytarne jako pragmatyzm. Ale to nie tylko polityka. To zmiana kulturowa. Odpychanie, zamykanie, karanie, izolowanie to dziś normy, nie wyjątki. Faszyzm nie puka do drzwi on już tu jest, rozsiadł się wygodnie i został zaproszony przez tych, którzy bali się powiedzieć „nie”, bo nie chcieli być nazwani naiwnymi. I dlatego właśnie musimy mówić głośniej.</p>
+                        <p>Zacznijmy od Włoch – kraju, który historycznie doświadczył faszyzmu w jego klasycznej, brutalnej formie. W 2022 roku premierką została Giorgia Meloni – liderka postfaszystowskiej partii Bracia Włosi, która swoje korzenie ma w neofaszystowskim ruchu MSI, spadkobiercy idei Mussoliniego. Choć Meloni oficjalnie dystansuje się od symboliki faszyzmu, to robi to tylko wtedy, gdy jest to politycznie wygodne. W praktyce jej rząd prowadzi twardą politykę antyimigracyjną, kulturowo represyjną i mocno katolicką w tonie. Jej sojusznicy nie kryją się z nostalgią za „porządkiem” czasów faszystowskich. I co najważniejsze nikt już nie traktuje ich jako ekstremistów.</p>
+                        <p>To samo dzieje się w Polsce. Partia rządząca przez osiem lat Prawo i Sprawiedliwość znormalizowała język nienawiści wobec uchodźców, osób LGBT+, kobiet domagających się swoich praw. A gdy straciła władzę, nowa liberalna koalicja nie cofnęła zegara zachowując graniczne pushbacki, represyjne prawo aborcyjne i brak odpowiedzialności za faszystowską przemoc. Dlaczego? Bo twardy prawicowy dyskurs wyznaczył ramy tego, co dziś jest „rozsądne”.</p>
+                        <p>Granice zostały przesunięte, ale nikt nie zauważył, kiedy to się stało. Nienawiść zaczęła być przedstawiana jako „obrona kultury”, przemoc jako „konieczność”, a represje jako „zdrowa reakcja państwa prawa”. Władza może się zmieniać, ale aparat represji i logika zarządzania strachem zostają. Dziś wystarczy że zamiast "Heil Hitler" skrajna prawica będzie krzyczeć "Polska dla Polaków” albo "Biała Europa” a zostaje potraktowana jak legalna, wartościowa strona debaty. Tymczasem ich postulaty są te same: wspólnota oparta na wykluczeniu, silne państwo ponad jednostką, naród jako fetysz, porządek jako dogmat. Liberalne społeczeństwa przyzwyczaiły się do tego powoli i nie reagując. I to właśnie jest mechanizm normalizacji.</p>
+                        <p>W Niemczech Alternatywa dla Niemiec (AfD) jeszcze kilka lat temu była traktowana jako polityczny margines. Dziś regularnie osiąga drugie miejsce w sondażach, zdobywa głosy nawet w tzw. klasie pracującej, a jej przedstawiciele mówią o potrzebie „powrotu do dumy narodowej”, Sądownictwo i kontrwywiad ostrzegają, że AfD jest realnym zagrożeniem dla demokracji ale to nie powstrzymuje milionów wyborców. Dlaczego? Bo faszyzm oferowany jest już nie jako groźba, ale jako rozwiązanie chaosu. Jako odpowiedź na lęki.</p>
+                        <p>We Francji sytuacja jest jeszcze bardziej paradoksalna. Marine Le Pen i jej Zjednoczenie Narodowe (dawniej Front Narodowy) od lat grają na emocjach tożsamościowych, antyislamskich i antyunijnych, zyskując coraz większe poparcie. Pożar w Notre-Dame, zamachy terrorystyczne, pandemia, kryzys energetyczny dla niej paliwem politycznym. A jednocześnie prezydent Emmanuel Macron, przedstawiany jako centrowy „obrońca demokracji”, prowadzi politykę równie represyjną ustawy policyjne, brutalne pacyfikacje protestów, islamofobia w białych rękawiczkach, pogarda wobec biedniejszych regionów kraju. To nie jest alternatywa to różne twarze tej samej twierdzy.</p>
+                        <p>Europa nie skręca w prawo w wyniku jednej decyzji. Ona dryfuje systemowo. Każda kolejna partia „centrowa” przejmuje język skrajności, każda władza wzmacnia aparat przymusu, każda opozycja rezygnuje z prawdziwej walki o równość, żeby nie narazić się „umiarkowanemu wyborcy”. Faszyzacja nie dzieje się przez przejęcie władzy przez jedną siłę, ale przez utratę odwagi moralnej całej klasy politycznej i jej wyborców. W tym kontekście nie wystarczy mówić o „zagrożeniu dla demokracji”. Demokracja parlamentarna oparta na interesach korporacji, strukturach władzy i systemowym wykluczeniu nigdy nie chroniła przed Faszyzmem. Często go umożliwia. Legalizuje. Ustawia do stołu. Oferuje mu mikrofon i tytuł „opozycji”.</p>
+                        <p>Niezależnie od lokalnych kontekstów czy mówimy o AfD w Niemczech, Vox w Hiszpanii, Zjednoczeniu Narodowym we Francji, Fideszu Orbána, Konfederacji w Polsce czy Braciach Włoch to skrajna prawica w Europie posługuje się tymi samymi metodami politycznymi. Ich skuteczność nie polega na oryginalności, ale na bezwzględnym kopiowaniu sprawdzonych wzorców i przystosowywaniu ich do narodowego gruntu.</p>
+                        <p>Pierwszą z tych taktyk jest stworzenie fikcyjnego zagrożenia – zazwyczaj w postaci migranta, muzułmanina, osoby LGBT+, „ideologii gender” czy lewicy. Ta figura wroga nie musi mieć nic wspólnego z rzeczywistością. Wręcz przeciwnie jej skuteczność bierze się z oderwania od faktów. Strach ma działać na emocje, nie na rozum. Nie ma znaczenia, że przestępczość spada, a osoby queer walczą tylko o równe prawa. Ważne jest stworzenie permanentnego poczucia zagrożenia, które uzasadni politykę siły i wykluczenia.</p>
+                        <p>Drugą taktyką jest przechwycenie języka ofiary. Skrajna prawica nie mówi już o swojej sile – mówi o swojej „dyskryminacji”. O tym, że „nie można już nic powiedzieć”, że „cenzura lewicowa” dominuje w mediach, że „normalni ludzie” są uciszani.</p>
+                        <p>Trzecią metodą jest wchłanianie symboliki społecznej i narodowej. W ich ustach np. Powstanie Warszawskie staje się opowieścią o rasowej czystości, a konstytucja o prawie do nienawiści. Wszystko, co miało kiedyś emancypacyjny potencjał, zostaje przejęte, wypaczone i zwrócone przeciwko wolności. Narodowe święta, symbole, pamięć to wszystko staje się narzędziem do wzmacniania tożsamości opartej na wykluczeniu.</p>
+                        <p>I wreszcie skrajna prawica nie dąży do przewrotu, lecz do stopniowego poszerzania granic dopuszczalnego dyskursu. Każde kolejne słowo nienawiści, które nie spotka się z reakcją, staje się precedensem. Każde oswojone hasło staje się fundamentem nowej normy. I tak krok po kroku faszyzm wchodzi przez drzwi „debaty publicznej”, „pluralizmu” i „wolności słowa” czyli pojęć, które zostały rozbrojone przez liberalną apatię.</p>
+                        <p>Nie byłoby ekspansji skrajnej prawicy bez sprzyjającego jej ekosystemu medialnego. W erze cyfrowej, gdzie algorytmy decydują o tym, co widzimy, media tradycyjne i platformy społecznościowe odgrywają kluczową rolę w kształtowaniu świadomości społecznej. Niestety często nie tylko nie powstrzymują faszyzacji, ale ją aktywnie wspierają. Telewizje głównego nurtu, z pozoru neutralne, od lat promują logikę „dwóch stron sporu”, zrównując tych, którzy walczą o równość, z tymi, którzy głoszą wykluczenie. Rasista zapraszany jest jako ekspert, faszysta jako „kontrowersyjny polityk”, transfob jako „obrońca tradycji”. Media tabloidowe i portale informacyjne żyją z klików a klikają się najlepiej lęk, szok, przemoc i dehumanizacja. Fala dezinformacji na temat migrantów, manipulacje danymi dotyczącymi przestępczości czy powielanie teorii spiskowych to chleb powszedni. W ten sposób nienawiść staje się treścią rozrywkową, wiralową, monetyzowaną, komentowaną bez refleksji.</p>
+                        <p>Ale to media społecznościowe, pozornie oddolne i demokratyczne, stały się najskuteczniejszym narzędziem faszyzacji. Algorytmy TikToka, Instagrama, YouTube’a czy Facebooka wzmacniają polaryzację i skrajność. To dlatego że lepiej klikałby są film z atakiem na osobę LGBT+ ma większy zasięg niż materiał edukacyjny. Dlatego influencerzy o nacjonalistycznych poglądach przebijają się szybciej niż lewicowi aktywiści.</p>
+                        <p>W dodatku wiele platform działa pod pozorem neutralności – ale ich polityki moderacyjne są wybiórcze, a reakcje na mowę nienawiści – opieszałe. Facebook przez lata ignorował zorganizowaną kampanię nienawiści wobec uchodźców. Twitter/X, po przejęciu przez Elona Muska, stał się otwartą przestrzenią dla neofaszystów. Skrajna prawica nie potrzebuje już partii masowych. Ma mem, stream, krótki filmik z muzyką. Ma stylówkę, która sprzedaje się lepiej niż transparent. Wchodzi przez ekran i zostaje w głowie nawet jeśli pozornie tylko na 15 sekund.</p>
+                        <p>Niepokojącym zjawiskiem ostatnich lat jest fakt, że to właśnie młode pokolenia te, które dorastały w pozornie „otwartym i nowoczesnym” świecie stają się podatnym gruntem dla skrajnie prawicowej propagandy. Wbrew temu, co głoszą liberalni komentatorzy, to nie „starsze pokolenia z PRL-u” ani „zacofana prowincja” stoją dziś na czele neofaszystowskiej rewolty. To TikTok, Discord i YouTube są dziś nowymi rekrutującymi koszarami reakcji.</p>
+                        <p>Dzieje się tak po pierwsze dlatego że współczesna młodzież dorasta w świecie permanentnej niestabilności. Widzi, że system nie oferuje nic poza wyścigiem szczurów, wypaleniem psychicznym i nieosiągalnym „sukcesem””. Liberalny sen o samorealizacji się wypalił, a w jego miejsce nie pojawiła się żadna alternatywa przynajmniej nie taka, która byłaby atrakcyjna wizualnie i emocjonalnie. Prawica daje za to coś innego złudne poczucie przynależności, wyraźnego wroga, jasnych ról społecznych. To prosta, brutalna odpowiedź na złożoność świata. Gdy lewica mówi o procesach strukturalnych, prawica krzyczy: „to przez tych obcych!”, „to przez feministki!”, „to przez pedałów!”. I młody, wkurzony człowiek, który nie umie jeszcze przefiltrować tych emocji, dostaje gotowy zestaw do wyładowania frustracji.</p>
+                        <p>Po drugie faszyzm dziś potrafi być „estetyczny”. Skrajna prawica nauczyła się poruszać w estetykach młodego pokolenia od anime po moda uliczna, od nostalgii za latami 90., po memy z ironicznym humorem. Połączyła przemoc symboliczną z kolorową grafiką, nacjonalizm z retro-filtrem z Instagrama. Młodzież jest bombardowana obrazami, które normalizują nienawiść przez popkulturę. Po trzecie młody człowiek nie znajduje alternatywy, bo lewica została wyciszona lub zakleszczona w języku, który nie rezonuje. Często mówi do ludzi tak, jakby ci już znali całą literaturę, wszystkie pojęcia i cały system odniesień. Lewicowe środowiska bywają zamknięte, elitarne lub skupione na wewnętrznych sporach. Skrajna prawica to wykorzystuje i przychodzi „z memem, żartem, powitaniem z gry komputerowej” i rekrutuje, zanim ktokolwiek zdąży powiedzieć: „hej, może problemem jest kapitalizm?”.</p>
+                        <p>Po czwarte edukacja publiczna zawiodła. System szkolny nie uczy myślenia krytycznego, nie rozbraja języka nienawiści, nie uczy historii faszyzmu jako ostrzeżenia. Młodzież wychodzi ze szkoły z wiedzą o datach bitew, ale bez narzędzi do rozpoznawania nowoczesnych form opresji. Po piąte i ostatnie chodzi o stereotypy. Prawica od dawna zrobiła sobie stereotyp tych "silnych”, a Lewica stereotypowo kojarzy się z osobą słabą i z kompleksami. Młodzież nie idzie w prawicę, bo jest „zła”. Idzie tam, gdzie ktoś daje jej emocje, wyjaśnienia i przynależność. Jeśli nie zrobimy tego my to zrobi to ktoś inny. Ktoś, kto nienawidzi wszystkiego, co daje ludziom wolność.</p>
+                        <p>Wielu z nich dorasta w cieniu kryzysu klimatycznego, w domach zmagających się z inflacją, przemocą, alkoholizmem czy brakiem perspektyw. Państwo nie istnieje, a jeśli już to jako aparat opresji. Lewica nie istnieje, bo jest zbyt zajęta reagowaniem na język wrażliwości, a nie na język gniewu. A więc pozostaje prawica agresywna, bezkompromisowa, z przekazem wycelowanym wprost w serce frustracji. Skrajna prawica rozumie jedno że młodym ludziom trzeba dać przestrzeń do działania a nie do tworzenia własnych działań. Tworzy mikrokosmosy, w których można poczuć się „prawdziwym mężczyzną”, „obrońcą tradycji”, „antysystemowcem” (bo to prawica ukradła ten język). Dla wielu to pierwsze miejsce, gdzie ktoś traktuje ich poważnie.</p>
+                        <p>Prawica oferuje też proste, binarne myślenie. Świat nie jest skomplikowany – są dobrzy (my) i źli (oni). Mężczyzna to mężczyzna, kobieta to kobieta, kraj to kraj, a reszta to „zagrożenie”. W dobie chaosu i rozmytej tożsamości, to niezwykle kuszące. A skoro to działa to czemu nie pójść dalej? Czemu nie iść w totalną kontrolę, przemoc, nacjonalizm? To właśnie tu zaczyna się droga ku totalizmowi. Radykalizacja młodzieży nie dzieje się na wiecach ani w strukturach partyjnych. Dzieje się w internecie, w filmach dokumentalnych o męskości, w głupawych streamach, gdzie „żartuje się z lewaków”. To tam powstają zręby ideologii. I tam też trzeba się z nimi zmierzyć.</p>
+                        <p>Największym błędem liberalnego świata ale także tej części lewicy, która uważa się za „realistyczną” jest wiara, że skrajna prawica to tylko „reakcja”, że to minie, gdy gospodarka się poprawi. To ślepa wiara w racjonalność, której nikt już nie kupuje. Skrajna prawica nie jest efektem kryzysu jest jego beneficjentem. Rosnące nierówności, brak mieszkań, rozkład publicznych usług to nie błędy systemu. To jego funkcja. A faszyzm to jego narzędzie ratunkowe, jego wentyl bezpieczeństwa. Lewica musi przestać się dziwić. Musi przestać się bronić. Musi zrozumieć, że jeśli nie zbudujemy kultury oporu, faszyści zbudują kulturę wojny.</p>
+                        <p>Aktualnie na naszych oczach jest „post-ironiczna faszyzacja” czyli zacieranie granic między „żartem” a realną ideologią. Memy o Hitlerze, „śmieszne” nawiązania do przemocy, mają na celu przekonanie, że mężczyzna powinien być silny, brutalny, dominujący. To nie tylko niewinne treści. To narzędzia rekrutacji. To przedsionki radykalizacji. Paradoksalnie, język alternatywy który niegdyś był domeną ruchów anarchistycznych i kontrkultury dziś bywa skutecznie kolonizowany przez nacjonalistów. W Polsce „antysystemowość” została niemal całkowicie przejęta przez Konfederację i narodowych streamerów, którzy z jednej strony plują na „system”, a z drugiej oferują totalitarną, patriarchalną wersję porządku. Prawica rozumie, że dzisiejsza walka o hegemonię to walka o język i styl. Dlatego tworzy własne grafiki, własną muzykę, własne marki odzieżowe. „Patriotyczny rap”, „męska motywacja”, „tradycja” z domieszką militaryzmu to nowy oręż. Ich twórcy nie muszą mówić wprost o Hitlerze czy Pinochecie. Wystarczy, że śmieją się z feministek, „lewactwa”, osób queer i imigrantów.</p>
+                        <p>Ten nowy faszyzm nie wygląda jak z podręcznika historii. Nie ma mundurów, defilad, ani ideologii w formie manifestu. Zamiast tego mamy narrację o „prawdziwych mężczyznach”, o „zagrożonej tożsamości”, o „konieczności walki”. Nie bez powodu ulubione hasła nowych prawicowych influenserów to „nie daj się złamać”, „bądź twardy”. I tu pojawia się pytanie: gdzie jest opór? Gdzie jest alternatywa? Jeśli nie damy młodym ludziom innego języka buntu, innej wspólnoty, innego sensu, to oddamy ich w ręce tych, którzy już teraz mówią: „chodź, damy ci tożsamość, cel i nienawiść do wroga”.</p>
+
+                        <h3>Na barykadach oporu. Jak przeciwdziałać faszyzmowi</h3>
+                        <p>Faszyzm nie rodzi się w próżni. Jest odpowiedzią systemu na własne kryzysy, a jego fundamentem zawsze będzie lęk, izolacja i brak nadziei. Dlatego skuteczna walka z faszyzmem nie zaczyna się na ulicy choć tam często się kończy lecz w rozbijaniu mechanizmów, które faszyzm karmią. Naszym zadaniem nie jest tylko reagować na brunatne marsze. Naszym zadaniem jest nie dopuścić, by miały pożywkę.</p>
+                        <p>Pierwszym krokiem jest dekonstrukcja narracji, jaką posługuje się prawica. Mówi ona o „porządku”, o „tradycji”, o „obronie rodziny” i „ochronie kobiet przed migrantami”. To wszystko są maski – za nimi kryje się rasizm, seksizm i dążenie do kontroli. Kluczowe jest obnażanie tych mitów, ale nie tylko przez intelektualne debaty. Chodzi o pokazanie ludziom, że świat może wyglądać inaczej i że prawica nie daje rozwiązań, tylko kozły ofiarne. Drugim krokiem jest budowanie alternatywnych struktur: mediów, kolektywów, samopomocy. Prawica rośnie, gdy ludzie czują się osamotnieni i bezsilni. Wspólne kuchnie, radykalna edukacja, kolektywne wsparcie prawne, skłoty, przestrzenie wolne od przemocy to wszystko odmienia życie jednostek i daje bezpośrednie doświadczenie innego świata. Tylko tak można przekonać do niego więcej ludzi nie teorią, a praktyką.</p>
+                        <p>Trzecim filarem oporu jest działanie bezpośrednie. Tam, gdzie faszyści wchodzą na ulice trzeba ich zablokować. Tam, gdzie szykanowana jest mniejszość trzeba stanąć w obronie. Tam, gdzie atakowana jest kobieta, osoba queerowa, osoba migrancka milczenie oznacza współudział. Blokady, kontrdemonstracje, obrona dzielnic nie są dodatkiem do teorii. Są jej sprawdzianem.</p>
+                        <p>Również ważnym zadaniem antyfaszystowskich i anarchistycznych ruchów jest odzyskanie wyobraźni rewolucyjnej. Nie wystarczy mówić: „prawica kłamie”. Trzeba pokazać, że my też mamy ogień, ale nie skierowany ku słabszym tylko ku źródłom opresji. Młody człowiek, który doświadcza biedy, wykluczenia czy przemocy w domu, nie szuka kompromisu lecz szuka sensu. Jeśli go nie znajdzie u nas, znajdzie go u nich. To my musimy go uprzedzić.</p>
+                        <p>Ważna jest również forma komunikacji. Radykalna lewica często zostaje w kręgu teorii i archaicznych form. Trzeba wejść w cyfrowe przestrzenie TikToka, Discorda, Reddita z przekazem nie tylko słusznym, ale też żywym, zabawnym, gniewnym. Przeciętny piętnastolatek nie czyta „Kapitału” ale może obejrzeć 20-sekundowy filmik, który obnaża klasizm lub policyjną brutalność. Trzeba zmienić język, nie treść. Kluczowe jest także tworzenie alternatywnych wspólnot. W miastach i miasteczkach, gdzie nie ma przestrzeni dla inności, młodzi trafiają w ręce organizacji neofaszystowskich, które oferują przynależność, „braterstwo”, strukturę. Trzeba to przechwycić: tworzyć skłoty, domy kultury oddolne, kolektywy młodzieżowe, które nie tylko są miejscem działania, ale i domem. Prawica wygrywa tam, gdzie młodzież czuje się samotna.</p>
+                        <p>Ich radykalizacja nie jest niezrozumiały jest wręcz logiczna. Kiedy masz 16 lat, żyjesz w świecie katastrofy klimatycznej, rosnących nierówności, braku mieszkań, depresji i niepewności. Politycy bredzą o „wolności”, gdy nie masz za co żyć, a szkoła uczy posłuszeństwa zamiast myślenia. System mówi: „pracuj i milcz” ale przyszłości nie daje żadnej. Dlatego nie możemy się zadowolić „wychowywaniem” młodzieży, moralizowaniem ani dystansowaniem się od „radykalizmu”. My musimy ten radykalizm odzyskać. Pokazać, że radykalna zmiana jest możliwa i że nie musi oznaczać nienawiści. Młodzi potrzebują języka gniewu, ale także wizji. Potrzebują nie tylko przekazu: „faszyzm jest zły” ale doświadczenia anarchia jest możliwa, inny świat jest możliwy.</p>
+                        <p>Jedną z dróg może być edukacja nieformalna: warsztaty z samoorganizacji, zajęcia z prawa pracowniczego, podstawy samoobrony, wspólne gotowanie i tworzenie przestrzeni wolnych od przemocy. To buduje więzi, daje poczucie sprawczości i odciąga od toksycznych środowisk. Inną formą są oddolne media młodzieżowe, kanały, podcasty, które pokazują rzeczywistość z innej niż narodowo-kapitalistycznej perspektywy. To młodzi są siłą, nie problemem. Ale żeby ich pozyskać, musimy przestać być defensywni. Trzeba iść z nimi nie przeciwko nim.</p>
+                        <p>Faszyzm nie zdobywa władzy od razu. Najpierw zapuszcza korzenie w strachu sąsiada przed „obcym”, w milczącym przyzwoleniu na przemoc, w normalizacji represji, w szkołach i urzędach. Właśnie dlatego każda dzielnica, każde miasteczko, każda wioska staje się polem bitwy. Praca lokalna nie jest mniej ważna od demonstracji czy działań medialnych przeciwnie, to ona rozbraja faszyzm tam, gdzie rośnie w codziennym życiu, w relacjach, w pustce po rozpadzie wspólnoty. Kiedy państwo wycofuje się z opieki, edukacji i kultury, przestrzeń wypełniają nacjonaliści. Musimy więc wrócić do podstaw: być tam, gdzie ludzie żyją naprawdę.</p>
+                        <p>Wspólne gotowanie (np. w ramach Food Not Bombs), punkty pomocy sąsiedzkiej, otwarte biblioteki, darmowe korepetycje, centra młodzieżowe, ogrody społecznościowe. to wszystko nie są tylko działania „socjalne”. To formy oporu. Budowanie wzajemności i samopomocy osłabia logikę faszystowską, która żeruje na izolacji, pogardzie i autorytecie. Kiedy ludzie mają siebie nawzajem, nie potrzebują wódz. Ważnym elementem jest też współpraca między różnymi grupami: ekologicznymi, queerowymi, pracowniczymi, artystycznymi. Tam, gdzie wcześniej panowała samotność i bezsilność, tworzy się sieć wsparcia i oporu. To nie tylko podnosi morale, ale wytwarza realną alternatywę wobec państwowego przymusu. Każdy dom, który staje się kolektywem. Każdy skłot, który oferuje schronienie. Każda kawiarnia, która zamienia się w punkt oporu. Faszyzm nie lubi lokalnych wspólnot, które myślą i działają samodzielnie. Dlatego trzeba je wzmacniać. Nie czekać, aż przyjdą represje tylko działać zanim będzie za późno.</p>
+                        <p>Jednostka, nawet najbardziej świadoma, nie pokona systemu. Faszyzm, kapitalizm, represyjna władza to nie są potwory z bajki, które znikną od jednego głośnego protestu czy głębokiego posta w mediach społecznościowych. To struktury, które żywią się samotnością, apatią, rozproszeniem. Dlatego odpowiedzią musi być wspólnota. Organizacja. Ruch. Nie musisz być ekspertem ani liderem. Wystarczy, że jesteś i chcesz działać. Każda osoba ma coś do wniesienia: czas, umiejętności, energię, sieć kontaktów. Potrzebujemy wszystkich: grafików i kucharek, informatyków i opiekunów, uczniów i dziadków. Organizacja to nie tylko strategia to godność. To powrót do poczucia sprawczości w świecie, który chce nam ją odebrać.</p>
+                        <p>W Polsce i całej Europie istnieje wiele form działania: grupy antyfaszystowskie, kolektywy anarchistyczne, lokalne federacje, inicjatywy queerowe, ekipy działające w ramach Food Not Bombs, wolne biblioteki, skłoty, rady pracownicze, kooperatywy. Każda z tych przestrzeni jest czymś więcej niż struktur. Tworząc własne kolektywy, nie tylko opieramy się opresji. Uczymy się życia bez hierarchii, bez szefów, bez państwa. Ćwiczymy demokrację, która nie sprowadza się do urn wyborczych. Uczymy się współpracy, odpowiedzialności, wzajemnej troski tego wszystkiego, czego system kapitalistyczny nas oducza</p>
+                        <p>Ale przede wszystkim odzyskujemy nadzieję. Organizowanie się to nie jest nudna konieczność. To najbardziej rewolucyjny akt dzisiejszych czasów. W świecie, który chce nas izolować i podporządkować, każda wspólna decyzja, każde kolektywne działanie to bunt. Każde „my” to cios w logikę władzy. Nie jesteś sam. I nigdy nie byłeś. Ale musisz zrobić pierwszy krok. Dołącz. Twórz. Organizuj się. Europa nie musi iść drogą represji, nacjonalizmu, ksenofobii i państwowej przemocy. Nie musi dryfować w kierunku autorytaryzmu, w którym wolność słowa jest przywilejem silnych, prawa są towarem dla bogatych, a demokracja kulisą dla policyjnej pałki. Ale by było inaczej, nie wystarczy nadzieja. Potrzebna jest organizacja. Potrzebna jest wspólnota. Potrzebna jest odwaga.</p>
+                        <p>Pokazaliśmy, że faszyzm nie zaczyna się nagle on wpełza przez media, szkoły, codzienne narracje, przez politykę strachu i uprzedzeń. Odpowiedź nie może być tylko defensywna. Potrzebujemy aktywnego, pozytywnego projektu społecznego, który daje alternatywę. Wspólnoty opartej na solidarności, równości, autonomii i wzajemnej trosce. Praca lokalna, oddolna organizacja, edukacja, kultura oporu, obecność na ulicach i w sieci to wszystko się liczy. Każde spotkanie sąsiedzkie, każda zorganizowana obrona przed eksmisją, każdy dzień spędzony w kolektywie, każde słowo wypowiedziane przeciwko nienawiści to cegła wyjęta z fundamentów władzy.</p>
+                        <p>Więc pamiętajcie wszyscy czytający nas że <strong>SOLIDARNOŚĆ NASZĄ BRONIĄ!</strong></p>
+                    </div>
                 </details>
             </div>
 
