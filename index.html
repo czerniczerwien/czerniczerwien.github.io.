@@ -7,14 +7,12 @@
     
     <link rel="icon" href="logo.jpg">
     <link rel="apple-touch-icon" href="logo.jpg">
-
     <meta property="og:site_name" content="Czerń i Czerwień">
     <meta property="og:title" content="Czerń i Czerwień | Portal">
     <meta property="og:description" content="Niezależna Inicjatywa Anarchistyczna. Wiadomości, publicystyka, biblioteka idei.">
     <meta property="og:image" content="https://czerniczerwien.xyz/logo.jpg">
     <meta property="og:url" content="https://czerniczerwien.xyz">
     <meta property="og:type" content="website">
-
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://czerniczerwien.xyz/logo.jpg">
     <meta name="twitter:title" content="Czerń i Czerwień">
@@ -46,6 +44,8 @@
             padding: 20px;
             text-align: center;
         }
+
+        /* === EFEKT GLITCH NA LOGO === */
         h1 {
             font-family: var(--font-head);
             text-transform: uppercase;
@@ -53,13 +53,73 @@
             letter-spacing: 2px;
             margin: 0;
             line-height: 1.1;
-            color: transparent; 
+            color: var(--bg-page); /* Ukrycie oryginalnego tekstu pod tło */
+            position: relative;
+            display: inline-block;
             -webkit-text-stroke: 1.5px var(--red-flag);
+            z-index: 1;
         }
+
+        /* Warstwa 1 - Czerwone przesunięcie */
+        h1::before {
+            content: "CZERŃ I CZERWIEŃ";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-page);
+            color: var(--red-flag);
+            -webkit-text-stroke: 0;
+            z-index: -1;
+            opacity: 0.7;
+            clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+            animation: glitch-anim-1 3s infinite linear alternate-reverse;
+        }
+
+        /* Warstwa 2 - Białe przesunięcie */
+        h1::after {
+            content: "CZERŃ I CZERWIEŃ";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-page);
+            color: #fff;
+            -webkit-text-stroke: 0;
+            z-index: -2;
+            opacity: 0.5;
+            clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+            animation: glitch-anim-2 2.5s infinite linear alternate-reverse;
+        }
+
         h1 span { 
             color: var(--red-flag);
             -webkit-text-stroke: 0;
+            position: relative;
+            z-index: 2;
         }
+
+        @keyframes glitch-anim-1 {
+            0% { clip-path: inset(20% 0 80% 0); transform: translate(-2px, 1px); }
+            20% { clip-path: inset(60% 0 10% 0); transform: translate(2px, -1px); }
+            40% { clip-path: inset(40% 0 50% 0); transform: translate(-2px, 2px); }
+            60% { clip-path: inset(80% 0 5% 0); transform: translate(2px, -2px); }
+            80% { clip-path: inset(10% 0 60% 0); transform: translate(-1px, 1px); }
+            100% { clip-path: inset(30% 0 20% 0); transform: translate(1px, -1px); }
+        }
+
+        @keyframes glitch-anim-2 {
+            0% { clip-path: inset(10% 0 60% 0); transform: translate(2px, -1px); }
+            20% { clip-path: inset(80% 0 5% 0); transform: translate(-2px, 1px); }
+            40% { clip-path: inset(30% 0 20% 0); transform: translate(2px, -2px); }
+            60% { clip-path: inset(10% 0 80% 0); transform: translate(-2px, 2px); }
+            80% { clip-path: inset(50% 0 30% 0); transform: translate(1px, -1px); }
+            100% { clip-path: inset(20% 0 70% 0); transform: translate(-1px, 1px); }
+        }
+        /* === KONIEC EFEKTU GLITCH === */
+
         .subtitle {
             font-size: 0.9rem;
             text-transform: uppercase;
@@ -336,15 +396,82 @@
                     </div>
                 </details>
             </div>
-            
-             <div class="post">
+
+            <div class="post">
+                <h2>Naród dla bogatych - Nacjonalizm jako przemoc klasowa</h2>
+                <p>Od dziecka uczą nas dumy z bycia obywatelem danego państwa, dumy ze swojej flagi. Wmawiane jest nam, że naród to rodzina, a ojczyzna to matka. Mamy być gotowi umrzeć za "ojczyznę", nawet jeśli ta ojczyzna nie zrobiła nic, byśmy mogli w niej godnie żyć.</p>
+                <details>
+                    <summary></summary>
+                    <div>
+                        <p>Politycy, dziennikarze, media – nikt z tych grup nie odpowiada, dla kogo tak naprawdę jest ta ojczyzna. Bo w momencie, gdy polityk każe ci śpiewać hymn, to nie dlatego, że zależy mu na twoim losie, lecz chce, żebyś milczał, żebyś nie pytał, czemu jego dziecko studiuje za granicą, a ty masz zapieprzać na śmieciówce.</p>
+                        <p>Nacjonalizm nie jest miłością do ziemi. To kij, którym bije się klasę pracującą, żeby nie zauważyła, kto realnie ją okrada. Nacjonalizm to ideologia, która każe ludziom walczyć między sobą na podstawie granic, które narysowali kiedyś królowie, kapitaliści i generałowie. To fałszywa tożsamość, która narzuca się tym, którzy mają najmniej, żeby nigdy nie próbowali podnieść wzroku ku tym, którzy mają wszystko. Pracownik z Łomży ma mniej wspólnego z prezesem z Warszawy niż z robotnikiem z Kijowa, Berlina czy Stambułu, bo i jeden, i drugi wie, jak smakuje przepracowana noc i jak wygląda pusty portfel pod koniec miesiąca.</p>
+                        <p>Nacjonalizm robi z biednych ludzi żołnierzy, wyborców, fanatyków. Każe im bronić "narodu", który w praktyce oznacza interesy polityków, oligarchów i korporacji. Kiedy ktoś ci mówi: „Imigranci zabiorą ci pracę”, to realnie pyta, kto zbudował system, w którym trzeba konkurować o prawo do życia. Anarchiści od dawna mówią, że ojczyzna to fikcja. Prawdziwa wspólnota rodzi się z solidarności, nie granic. Emma Goldman pisała: „Patriotyzm to ostatnie schronienie łajdaka” – bo kiedy nie masz już nic do zaproponowania ludziom, sprzedajesz im sztandar i dumę z bycia biednym, ale przynajmniej za "wielkim narodem”.</p>
+                        <p>W świecie, gdzie jedni mają wille i armie, a drudzy stoją w kolejce po leki, nacjonalizm to broń klas wyższych. To sposób, aby biedni nie zauważyli, kto naprawdę trzyma ich za gardło. Dlatego w anarchizmie nie jest tylko odrzucenie granic, a odrzucenie klas, władzy, mitów, które mają na celu dzielić ludzi. Jednocześnie, mówiąc to, anarchizm nie rzuca słów na wiatr, a proponuje rozwiązania. Zamiast narodów – wspólnota, zamiast granic – solidarność, a zamiast przemocy klasowej – rewolucja. Trzeba pamiętać, że siła nie leży w hymnie ani w orle na paszporcie, ale leży w tym, że stajesz ramię w ramię z drugim człowiekiem. Nie ma znaczenia, czy mówisz tym czy innym językiem, nie ma znaczenia, jaki ktoś ma kolor skóry czy pochodzenia. ŻADEN CZŁOWIEK NIE JEST NIELEGALNY!</p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="post">
+                <h2>Religia zysku - parę słów o kapitalizmie</h2>
+                <p>Nigdy nikt nas nie pytał, czy chcemy żyć w świecie, który codziennie składa nas w ofierze dla zysku. Urodziliśmy się w systemie, który od pierwszego oddechu przypisał nam miejsce w hierarchii. Od dziecka uczono nas, że pieniądz to życie, że własność to świętość, a praca obowiązkiem i zaszczytem.</p>
+                <details>
+                    <summary></summary>
+                    <div>
+                        <h3>Rozdział I</h3>
+                        <p>Kapitalizm nie jest tylko gospodarką. To religia, która nie potrzebuje bogów, bo ma rynki. To system moralny, który nazywa biedę winą, a wyzysk sukcesem. To porządek, który łudzi obietnicą wolności, ale daje ją tylko tym, którzy urodzili się na górze.</p>
+                        <p>Patrzysz na billboard. Kobieta się śmieje, dziecko szczęśliwe, dom z katalogu. A obok bezdomny trzyma kartkę z napisem "na jedzenie". Uczony jesteś od małego, że bieda wynika z tego, że nie jesteś elastyczny, produktywny i przystosowany. Ale to nie ty jesteś wadliwy, to system jest!</p>
+                        <p>Kapitalizm przetrwał tak długo nie dlatego, że działa, lecz dlatego, że skutecznie wmawia ludziom, że nie ma alternatywy. Przedstawia się jako "naturalny" stan rzeczy. Jak coś, co "zawsze było" i co "zawsze będzie". Ale żaden system oparty na dominacji, wyzysku, przemocy ekonomicznej i alienacji nie trwa wiecznie. Upadają imperia, upadają rządy, upadają mury i upadnie też on – ten "wielki" kapitalizm.</p>
+                        <p>Bo gdy wszystko w twoim życiu jest towarem – nawet ciało, czas, zdrowie, uczucia – to w końcu zostaje już tylko gniew. Kapitalizm nie potrzebuje pałki, gdy ma kredyt hipoteczny. Nie musi ci grozić, wystarczy, że odcina ci dostęp do życia, jeśli nie podporządkujesz się jego logice. Dla biednych są warunki, dla bogatych przywileje. A dla ogółu mit o ciężkiej pracy, przez którą "dojdziesz do wszystkiego". Ale jak masz dojść, skoro system nie pozwala ci ruszyć? Jak masz żyć, kiedy życie wycenione jest przez ludzi, których nigdy nie spotkasz?</p>
+                        <p>Wmawia się nam, że własność to wolność. Że to, co posiadasz, jest twoje, że możesz tym zarządzać, że masz nad tym kontrolę. Ale w rzeczywistości własność nie daje ci wolności. Ona tylko odwraca twoją uwagę od faktu, że jesteś zależny. Od pracy, czynszu, prawa własności tych, którzy mają więcej niż ty. Bo dom, który "należy" do ciebie, kupiony jest na 30 lat kredytu, podpisanego z instytucją, która ma prawo go ci zabrać w każdej chwili. Bo ziemia, która "należy" do narodu, jest wykupowana hektarami przez inwestorów, którzy nigdy po niej nie przejdą. Bo mieszkanie, które wynajmujesz, służy do pomnażania czyjegoś kapitału, kto ma ich dziesięć i nie mieszka w żadnym z nich.</p>
+                        <p>Kiedyś ziemia nie należała nikomu ani niczemu. Rzeki, niebo, ludzie mieszkali, pracowali, dzielili się. Własność prywatna była anomalią – czymś nienaturalnym i niezrozumiałym. Aż pojawili się ci, którzy mieli włócznie, strażników i księgi prawa. Zaczęli nazywać ziemie swymi imionami, nazywali ludzi swymi "poddanymi". Potem zaczęto nazywać ludzi "siłą roboczą". Zmienili tylko słowa, ale mechanizm nic się nie zmienił.</p>
+                        <p>Współcześni właściciele ziem nie noszą broni, mają akty notarialne i ludzi, którzy ich bronią, czyli prawników, komorników i policję. Kiedy zostajesz wyrzucony z domu, to jest legalne. Kiedy przejmują całą kamienicę, to tylko inwestycja. Ale gdy ty zajmiesz pustostan, to przestępstwo. System chroni własność, nie ludzi. Nie powinno się budować relacji wokół "moje", ale wokół "wspólne". Dobra nie powinny być gromadzone, lecz dzielone. Logiczne powinno być, że człowiek ma prawo do mieszkania czy życia i nie powinien być to tylko towar. Czy jest to moralne, że jedzenie jest wyrzucane tylko dlatego, bo ktoś nie ma na nie pieniędzy?</p>
+                        <p>Własność nie jest czymś naturalnym, lecz wyuczonym. Jest ideologicznym betonem, który zalano w naszych głowach, byśmy nie dostrzegali, że świat może wyglądać inaczej. I właśnie o tym powinno się mówić, nie siedzieć cicho. Bo świat, który budowany jest tylko na dominacji, nie zasługuje na to, by trwać i dostawać przyzwolenie. Możemy realnie żyć inaczej, ale tylko wtedy, gdy przestaniemy wierzyć, że człowiek to tylko towar oraz że cokolwiek naprawdę "należy" do kogokolwiek.</p>
+
+                        <h3>Rozdział II</h3>
+                        <p>Mówi się, że każdy może być kim chce. Prawda jest taka, że już od urodzenia przypisano ci miejsce w piramidzie życia. Jedni zaczynają życie na szczycie ze spadkiem, z kontaktami, z pewnością siebie, która daje przekonanie, że świat jest im dany. Inni budzą się na dnie z długiem i z chorobą. Całe życie próbują wspinać się w górę po schodach, które zaprojektowano tak, by prowadziły w koło.</p>
+                        <p>Kapitalizm kocha mówić o "klasie średniej" jakby to była wspólnota ludzi aspirujących, ambitnych, szczęśliwych. Ale klasa średnia to bajka dla tych, którzy mają kredyt hipoteczny i wmówiono im, że to przywilej. To klasa wyczerpana, zadłużona i pozbawiona czasu. Klasa, która boi się, że spadnie w dół i przez ten strach trzyma się systemu, nie widząc tego, że idzie w kółko.</p>
+                        <p>W tym układzie realnie są tylko dwie grupy: grupa pracujących i grupa wyzyskujących burżujów, żyjących z pracy tych niżej. Ci pierwsi budują domy, jeżdżą autobusami, roznoszą jedzenie, sprzątają ulice, naprawiają kable, uczą dzieci. A ci drudzy mają konta inwestycyjne, nieruchomości, akcje, spółki, których nigdy nie odwiedzają. System nauczył nas, że to ci drudzy to "elita", że mamy ich podziwiać, słuchać i głosować na nich. A ci, którzy realnie tworzą wartość, mają być wdzięczni za pensję.</p>
+                        <p>Gdy ty mówisz: "Mam szefa, który jest w porządku", ale on realnie nie płaci z swoich pieniędzy, lecz płaci z twojej pracy. Z tego, co ty wytworzyłeś i tylko część ci oddaje. Resztę zatrzymuje, bo ma do tego prawo nadane przez prawo pisane przez takich jak on. Wyzysk nie krzyczy, nie bije pałką. Dziś ma krawat, regulamin i święto pracy raz do roku. Ale jego istota się nie zmienia. Nadal ktoś bierze twoje osiem godzin życia dziennie i oddaje ci ich jedną piątą w formie wypłaty.</p>
+                        <p>Kiedy protestujesz, mówią, że jesteś roszczeniowy. Kiedy strajkujesz, że niszczysz gospodarkę. Kiedy walczysz o swoje, że jesteś ekstremistą. System nie boi się ludzi posłusznych, boi się ludzi, którzy walczą o swoje. I właśnie to jest celem podziału klasowego, nie tylko wyzysk, lecz złamanie wspólnoty. Małżeństwo rozbijane przez zmianę. Rodziny rozbite przez poglądy. Sąsiedzi zamknięci w ekranach. Robotnik z Warszawy nie spotka się z robotnikiem z Kijowa, bo jeden ma "dobre papiery", a drugi "zabiera pracę".</p>
+                        <p>Ale to nie oni są w konflikcie. To nie ich interesy się zderzają. Ich wspólnym wrogiem jest system, który żeruje na ich pracy i napuszcza ich na siebie. Nic się nie zmieni, dopóki ludzie nie przestaną widzieć siebie jako jednostek walczących o przetrwanie. Gdy zaczną widzieć siebie jako klasę walczącą o przyszłość. Solidarność klasowa nie polega na tym, że wszyscy się lubimy. Polega na tym, że wiemy, kto nas wykorzystuje. I że zaczynamy mówić o tym głośno.</p>
+
+                        <h3>Rozdział III</h3>
+                        <p>Każde imperium, które chce przetrwać, potrzebuje dwóch rzeczy: strażników i mitu. Strażnicy pilnują, byś nie podnosił głowy. Mit – byś nie pomyślał, że możesz. Współczesne państwo to perfekcyjna hybryda obu. To nie neutralna instytucja. To nie wspólnota obywatelska. To aparat przemocy i kontroli, tworzony po to, by utrwalić władzę jednej klasy nad drugą.</p>
+                        <p>Nie bez powodu pierwsze, co cię spotyka, gdy się urodzisz, to nadanie numeru. Numeru PESEL, numeru aktu urodzenia, rejestr w systemie. To jak wstęp do gry, w której ty nie pisałeś zasad. Od tej pory całe życie spędzasz w ramkach: edukacji, pracy, podatków, licencji, przepisów, zezwoleń. A gdy się buntujesz, pojawi się policja. I nie ochroni cię, ochroni "porządek".</p>
+                        <p>Policja nie istnieje po to, by bronić ludzi. Istnieje po to, by chronić własność i hierarchię. Gdy bank wyrzuca ludzi z mieszkań, policja stoi po stronie banku. Gdy robotnik protestuje przeciw wyzyskowi, to policja broni zakładu pracy. Gdy queerowa młodzież idzie z transparentem, a faszysta z nożem, policja mówi, że "winne" są obie strony, mogli "nie prowokować".</p>
+                        <p>System prawa nie jest narzędziem sprawiedliwości. Jest systemem zarządzania, lojalności i kapitału. Nie masz prawa do mieszkania, ale właściciele mają prawo do pustostanów. Nie masz prawa do leczenia, ale firma farmaceutyczna ma prawo do patentu. Nie masz prawa do bezpieczeństwa, ale korporacja ma prawo do twoich danych. Państwo nie jest neutralne. To nie arbiter, to właściciel stadionu, gracz i sędzia w jednej osobie. Ty nie jesteś jego gościem, jesteś jego towarem.</p>
+                        <p>Jednocześnie pamiętajmy, że świat równości nie przyjdzie z parlamentu. Kapitalizm nie upadnie przez wybory. Upada, kiedy przestajemy w niego wierzyć. Co cztery lata wrzucasz kartkę, a potem patrzysz, jak wszystko zostaje po staremu, tylko w innym kolorze. Zmieniają się twarze, logo, slogany. Ceny dalej rosną, ludzie dalej głodują, pensje dalej nie wystarczają do życia. To nie system, który się zepsuł, to system, który działa dokładnie tak, jak miał.</p>
+                        <p>Demokracja parlamentarna uczy cię, że jesteś obywatelem. Ale traktuje cię jak poddanego. Uczy, że twoje zdanie ma "znaczenie", ale ignoruje je, gdy chodzi o prawa pracownicze, ochronę klimatu czy antyfaszyzm. Uczy cię: "poczekaj, załatwimy to za ciebie", gdzie i tak mają cię gdzieś. Zastanów się, czy to wszystko jest normalne?</p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="post">
+                <h2>EuroFront. W którą stronę idzie Europa?</h2>
+                <p>Zgnilizna starego kontynentu. Pieprzona Europa. Wiecie, co to za kontynent? To kolos na glinianych nogach, który sypie się na naszych oczach, a jego zarządcy udają, że wszystko gra.</p>
+                <details>
+                    <summary></summary>
+                    <div>
+                        <h3>Zgnilizna starego kontynentu</h3>
+                        <p>Mówili, że to ostoja wolności, demokracji, ludzkich praw, kurwa jego mać! A ja widzę tylko smród obłudy, zakłamania i tchórzostwa...</p>
+                        </div>
+                </details>
+            </div>
+
+            <div class="post">
                 <h2>Granice Zabijają</h2>
                 <p>Jak podaje organizacja We Are Monitoring, od czasu rozpoczęcia kryzysu na granicy Polsko-Białoruskiej zginęły 102 osoby. Granice to nie tylko kreski na mapie...</p>
                 <details>
                     <summary></summary>
                     <div>
-                         <p>Jak podaje strona missing migrants od 2014 roku liczba osób w drodze, które zaginęły lub zginęły na morzu śródziemnym wynosi ponad 32 tysiące...</p>
-                         <div class="footnotes">
+                        <p>Jak podaje strona missing migrants od 2014 roku liczba osób w drodze, które zaginęły lub zginęły na morzu śródziemnym wynosi ponad 32 tysiące. W samym tylko 2024 roku ponad 2800 osób zostało zatrzymane przez frontex i zawrócone do niebezpiecznych miejsc.</p>
+                        <p>Z czego wynika cała ta sytuacja? Czy to "błąd w systemie", czy może konsekwencja samego systemu? Granice tak na prawdę określają strefy, nad jakimi dane państwa mają kontrolę. Państwa te używają ich instrumentalnie, z jednej strony są one całkowicie otwarte dla kapitału, kiedy się to opłaca, z drugiej strony służą jako narzędzie do budowania poparcia politycznego. Przecież nie ma nic lepszego niż chronienie granic.</p>
+                        <p>Aby chronić nasze granicę czasem trzeba kogoś zabić, czasem kogoś głodzić, zawrócić do państwa gdzie życie danej osoby jest bezpośrednio zagrożone. W taki właśnie sposób granicę zabijają. Nie potrzeba nam "innej polityki migracyjnej", "racjonalnej", ale też "humanitarnej", w rzeczywistości zmiana polityki migracyjnej państwa to tylko zmiana sposobu w jaki dane osoby umierają i zmiana ilości tych osób.</p>
+                        <p>Ponadto granicy nie tylko ograniczają swobodny przepływ ludność i zabijając osoby migranckie, ale też są główną przyczyną wojen. Jakieś państwo, chcę poszerzyć swoje granice, aby na jego terytorium znalazły się cenne złoża ropy czy żyzna ziemia, a może po to by zbić kapitał polityczny na nienawiści, następnie atakuje działaczy humanitarnych, których chcą "naruszyć granicę", aby tą pomoc humanitarną dostarczyć.</p>
+                        <p>Tak dzieje się aktualnie przy każdej próbie dostarczenia pomocy humanitarnej do Strefy Gazy (więcej informacji w tym temacie - „FLOTYLLA PŁYNIE!”), przecież ci działacze chcą wpłynąć na wody termalne izraela! Chcą nielegalnie przekroczyć granicę innego państwa!</p>
+                        <p>Tak więc granice powodują wojny i zabijają osoby w kryzysie migracyjnym, oczywiście nie robi tego sam koncept granic, tylko konkretne instytucje powołane do ich bronienia, Straż Graniczna, Frontex, IDF.</p>
+                        
+                        <div class="footnotes">
                             <p>[1] We Are Monitoring: <a href="https://wearemonitoring.org.pl/lista-zmarlych/" target="_blank">Lista zmarłych</a></p>
                             <p>[2] Missing Migrants: <a href="https://missingmigrants.iom.int/region/mediterranean" target="_blank">Dane Morze Śródziemne</a></p>
                             <p>[3] Sea-Watch Report 2024: <a href="https://sea-watch.org/wp-content/uploads/2025/07/Airborne-Annual-Report-2024.pdf" target="_blank">PDF</a></p>
@@ -359,7 +486,11 @@
                 <details>
                     <summary></summary>
                     <div>
-                         <p>Ludziom wydaje się to normalne że kupują nowe buty, nowe telefony...</p>
+                        <p>Ludziom wydaje się to normalne że kupują nowe buty, nowe telefony, nowe samochody i wydają pieniądze na nowinki technologiczne lecz czy robią to bo tego chcą? Z jednej strony może się wydawać że tak że kupują bo chcą ale z drugiej strony czy to przypadkiem nie jest złudzeniem kapitału? Czy to nie jest tak że system kapitalistyczny konsumuje nas? Naszą uwagę, czas, zasoby, energię, emocje czy życie?</p>
+                        <p>Ale by poznać odpowiedzi na te pytania musimy najpierw sprecyzować czym jest sam konsumpcjonizm. Konsumpcjonizm to idea która zakłada że im więcej mamy i im więcej zużywamy tym "szczęśliwsi” jesteśmy. Gospodarka rynkowa którą znamy właśnie opiera się na tym że wzrasta produkcja to musi jednocześnie wzrastać sprzedaż by tworzyć popyt. To właśnie ten system gospodarczy eksploatuje zasoby i ludzi.</p>
+                        <p>Badania nad kulturą konsumpcjonizmu wskazują jasno że społeczeństwo nie tyle co potrzebuje dóbr lecz jest zachęcane wręcz można by ująć programowane do konsumpcji ponad potrzeby ludzkie. Sam system kapitalistyczny używa narzędzi do programowania nas, reklamy, media, trendy czy nawet marki to wszystko kreuje sztucznie wyimaginowane potrzeby które są tylko konstruktem rynkowym nie realnym brakiem.</p>
+                        <p>Dla coraz większej części społeczeństwa konsumpcjonizm przestaje być środkiem do życia lecz staje się celem i treścią życia. Według badań sam konsumpcjonizm według wieku jest wyznacznikiem statusu społecznego a nie tylko zaspokajaniem podstawowych potrzeb.</p>
+                        <p>Ta cała wypowiedź prowadzi nas do paradoksu że mimo że to my konsumujemy ogromne ilości dóbr tak naprawdę to system ten konsumuje nas.</p>
                         <p style="margin-top: 20px;">
                             <a href="https://czasopisma.uwr.edu.pl/fsoc/article/download/5774/5452/?utm_source=" target="_blank" style="color: var(--red-flag); font-weight: bold;">[PRZECZYTAJ PEŁNY TEKST NAUKOWY]</a>
                         </p>
@@ -383,14 +514,39 @@
                     </div>
                     <a href="Iskra.5.pdf" class="btn" target="_blank" download>POBIERZ PDF</a>
                 </div>
-                 <div class="iskra-item">
+
+                <div class="iskra-item">
                     <div>
                         <h3>Iskra Nr 4 (2025)</h3>
                         <p>Temat: Flotylla zatrzymana! Deportacja za wykroczenia.</p>
                     </div>
                     <a href="Iskra.4.pdf" class="btn" target="_blank" download>POBIERZ PDF</a>
                 </div>
-                 </div>
+
+                <div class="iskra-item">
+                    <div>
+                        <h3>Iskra Nr 3 (2025)</h3>
+                        <p>Temat: Morderstwo w Palestynie. Masowy militaryzm.</p>
+                    </div>
+                    <a href="Iskra.3.pdf" class="btn" target="_blank" download>POBIERZ PDF</a>
+                </div>
+
+                <div class="iskra-item">
+                    <div>
+                        <h3>Iskra Nr 2 (2025)</h3>
+                        <p>Temat: Stop faszyzmowi. The Base - narzędzie Kremla.</p>
+                    </div>
+                    <a href="Iskra.2.pdf" class="btn" target="_blank" download>POBIERZ PDF</a>
+                </div>
+
+                <div class="iskra-item">
+                    <div>
+                        <h3>Iskra Nr 1 (2025)</h3>
+                        <p>Temat: Konfederacja Rasistów. Ułaskawienie faszyzmu.</p>
+                    </div>
+                    <a href="Iskra.1.pdf" class="btn" target="_blank" download>POBIERZ PDF</a>
+                </div>
+            </div>
         </section>
 
         <section id="support" class="page-section">
